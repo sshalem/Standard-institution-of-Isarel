@@ -1,4 +1,4 @@
-package com.sioi.entity;
+package com.sii.entity;
 
 import java.util.Set;
 

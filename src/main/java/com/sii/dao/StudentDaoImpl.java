@@ -1,10 +1,10 @@
-package com.sioi.dao;
+package com.sii.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sioi.entity.Student;
-import com.sioi.repository.StudentRepo;
+import com.sii.entity.Student;
+import com.sii.repository.StudentRepo;
 
 @Service
 public class StudentDaoImpl implements StudentDao {

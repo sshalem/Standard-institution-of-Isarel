@@ -1,8 +1,8 @@
-package com.sioi.repository;
+package com.sii.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.sioi.entity.Student;
+import com.sii.entity.Student;
 
 public interface StudentRepo extends JpaRepository<Student, Long> {
 

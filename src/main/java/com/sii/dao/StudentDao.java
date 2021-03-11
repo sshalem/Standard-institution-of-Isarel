@@ -1,6 +1,6 @@
-package com.sioi.dao;
+package com.sii.dao;
 
-import com.sioi.entity.Student;
+import com.sii.entity.Student;
 
 public interface StudentDao {
 

@@ -1,10 +1,10 @@
-package com.sioi.facade;
+package com.sii.facade;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sioi.dao.StudentDaoImpl;
-import com.sioi.entity.Student;
+import com.sii.dao.StudentDaoImpl;
+import com.sii.entity.Student;
 
 @Service
 public class StudentFacade {

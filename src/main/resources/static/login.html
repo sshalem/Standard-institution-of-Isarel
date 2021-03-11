@@ -1,62 +1,60 @@
 <!DOCTYPE html>
-<html  dir="rtl" lang="he">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>כניסה</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/c3d49f7cef.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px; text-align: right;">
-        <div class="card">
-          <div class="card-header" style="background-color:#1E90FF;">
-            <i class="fa fa-user" style="font-size:24px;"></i> כניסה לעמוד קורסים
-          </div>
-          <div class="card-block" style="padding: 24px;">
-            <form class="form-signin" method="post" action="/login">
-              <div class="form-group">
-                <label for="username">ת.ז. סטודנט</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="ת.ז." required="" autofocus="">
-              </div>
-              <div class="form-group">
-                <label for="password">סיסמא</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="סיסמא" required="">
-              </div>
-              <!-- <input type="hidden" name="_csrf" value="0df7ad53-7259-44dd-8dcc-8839aae248fb">  -->
-              <div id="csrfAdd"></div>
-              <div class="form-actions" style="margin-top: 12px;">              
-                <button type="submit" class="btn btn-success btn-block" style="background-color:#1E90FF;">כניסה</button>               
-              </div>
-              <br>
-              <div id="err"></div>
-            </form>
-          </div>
+<html dir="rtl" lang="he">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>כניסה</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/c3d49f7cef.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px; text-align: right">
+                <div class="card">
+                    <div class="card-header" style="background-color: #1e90ff">
+                        <i class="fa fa-user" style="font-size: 24px"></i> כניסה לעמוד קורסים
+                    </div>
+                    <div class="card-block" style="padding: 24px">
+                        <form class="form-signin" method="post" action="/login">
+                            <div class="form-group">
+                                <label for="username">ת.ז. סטודנט</label>
+                                <input type="text" id="username" name="username" class="form-control" placeholder="ת.ז." required="" autofocus="" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">סיסמא</label>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="סיסמא" required="" />
+                            </div>
+                            <!-- <input type="hidden" name="_csrf" value="0df7ad53-7259-44dd-8dcc-8839aae248fb">  -->
+                            <div id="csrfAdd"></div>
+                            <div class="form-actions" style="margin-top: 12px">
+                                <button type="submit" class="btn btn-success btn-block" style="background-color: #1e90ff">כניסה</button>
+                            </div>
+                            <br />
+                            <div id="err"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <script>
-    var ck = document.cookie;
-    var splitCookie = ck.split("=");
-    console.log(ck);
-    console.log(splitCookie);
-    const csrfAdd = document.getElementById("csrfAdd");
-    
-    window.addEventListener("load",()=>{
-    	csrfAdd.innerHTML = `<input type="hidden" name="_csrf" value="${splitCookie[1]}">`;
-    });
-    
-    
-    
-    	if (window.location.search != "" && window.location.search != "?") {
-    		document.getElementById("err").innerHTML = `
+        <script>
+            var ck = document.cookie;
+            var splitCookie = ck.split('=');
+            console.log(ck);
+            console.log(splitCookie);
+            const csrfAdd = document.getElementById('csrfAdd');
+
+            window.addEventListener('load', () => {
+                csrfAdd.innerHTML = `<input type="hidden" name="_csrf" value="${splitCookie[1]}">`;
+            });
+
+            if (window.location.search != '' && window.location.search != '?') {
+                document.getElementById('err').innerHTML = `
     		<div class="alert alert-danger">Invalid username and password.</div>
-    		`;		
-    }
-    </script>
-  </body>
+    		`;
+            }
+        </script>
+    </body>
 </html>
