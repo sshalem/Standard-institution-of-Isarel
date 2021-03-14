@@ -37,6 +37,4 @@ public class StudentDaoImpl implements StudentDao {
 		return studentRepo.findBystudentIdentity(identificationNumber);
 	}
 
-
-
 }

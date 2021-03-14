@@ -35,16 +35,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.csrf().disable()
 			.authorizeRequests()
-//			.antMatchers("/", "/index", "/css/*", "/js/*", "/images/*").permitAll()
+			.antMatchers("/", "/index", "/css/*", "/js/*", "/images/*").permitAll()
 			.antMatchers("/courses").authenticated()
 			.anyRequest()
 			.authenticated()
 		.and()
 			.formLogin()
 			.loginPage("/login")
-			.usernameParameter("username")
-			.passwordParameter("password")	
-//			.loginProcessingUrl("/student_login") // the URL to submit the username and password to
 			.defaultSuccessUrl("/courses", true)
 			.failureUrl("/login.html?error=true")
 			.permitAll()
@@ -53,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.invalidateHttpSession(true)
 			.clearAuthentication(true)
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout","POST"))
-			.logoutSuccessUrl("/logout")
+			.logoutSuccessUrl("/login")
 			.deleteCookies("JSESSIONID");
 	}
 }

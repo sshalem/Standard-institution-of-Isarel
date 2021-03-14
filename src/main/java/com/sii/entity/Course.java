@@ -20,7 +20,7 @@ public class Course {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String courseNumber;
-	private int yaer;
+	private int year;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
@@ -32,10 +32,10 @@ public class Course {
 		super();
 	}
 
-	public Course(String courseNumber, int yaer) {
+	public Course(String courseNumber, int year) {
 		super();
 		this.courseNumber = courseNumber;
-		this.yaer = yaer;
+		this.year = year;
 	}
 
 	public long getId() {
@@ -55,11 +55,11 @@ public class Course {
 	}
 
 	public int getYaer() {
-		return yaer;
+		return year;
 	}
 
 	public void setYaer(int yaer) {
-		this.yaer = yaer;
+		this.year = yaer;
 	}
 
 	public Set<Student> getStudentList() {
@@ -72,7 +72,7 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", courseNumber=" + courseNumber + ", yaer=" + yaer + ", studentList=" + students
+		return "Course [id=" + id + ", courseNumber=" + courseNumber + ", yaer=" + year + ", studentList=" + students
 				+ "]";
 	}
 

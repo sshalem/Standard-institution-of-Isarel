@@ -13,22 +13,22 @@ import com.sii.entity.Student;
 import com.sii.facade.StudentFacade;
 
 @Service
-public class StudentUserDetailsService implements UserDetailsService{
+public class StudentUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private StudentFacade studentFacade;
-	
+
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Student student = studentFacade.getByStudentIdentification(username);
-		
+	public UserDetails loadUserByUsername(String identificationNumber) throws UsernameNotFoundException {
+		Student student = studentFacade.getByStudentIdentification(identificationNumber);
+
 		User user = new User(
 				student.getStudentIdent(), 
 				student.getEncryptedPassword(), 
 				true, 
 				true, 
 				true, 
-				true, 
+				true,
 				new ArrayList<>());
 		return user;
 	}

@@ -22,7 +22,6 @@ public class Student {
 	private String encryptedPassword;
 	private String email;
 
-	// mappedBy name needs to be the name of the field in the other entity
 	@ManyToMany(mappedBy = "students")
 	private Set<Course> courses;
 

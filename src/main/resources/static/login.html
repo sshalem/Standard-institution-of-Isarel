@@ -28,7 +28,7 @@
                                 <input type="password" id="password" name="password" class="form-control" placeholder="סיסמא" required="" />
                             </div>
                             <!-- <input type="hidden" name="_csrf" value="0df7ad53-7259-44dd-8dcc-8839aae248fb">  -->
-                            <div id="csrfAdd"></div>
+                            <!-- <div id="csrfAdd"></div> -->
                             <div class="form-actions" style="margin-top: 12px">
                                 <button type="submit" class="btn btn-success btn-block" style="background-color: #1e90ff">כניסה</button>
                             </div>
@@ -52,7 +52,7 @@
 
             if (window.location.search != '' && window.location.search != '?') {
                 document.getElementById('err').innerHTML = `
-    		<div class="alert alert-danger">Invalid username and password.</div>
+    		<div class="alert alert-danger">שם משתמש / סיסמא שגויים</div>
     		`;
             }
         </script>
