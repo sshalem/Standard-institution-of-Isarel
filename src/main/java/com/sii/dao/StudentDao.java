@@ -11,5 +11,7 @@ public interface StudentDao {
 	void updateStudent(Student student);
 	
 	void deleteStudentById(long id);
+	
+	Student findByStudentIdentificationNumebr(String identificationNumber);
 
 }

@@ -18,7 +18,7 @@ public class Student {
 	private long id;
 	private String firstName;
 	private String lastName;
-	private String studentIdent;
+	private String studentIdentity;
 	private String encryptedPassword;
 	private String email;
 
@@ -34,7 +34,7 @@ public class Student {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.studentIdent = studentIdent;
+		this.studentIdentity = studentIdent;
 		this.encryptedPassword = encryptedPassword;
 		this.email = email;
 	}
@@ -64,11 +64,11 @@ public class Student {
 	}
 
 	public String getStudentIdent() {
-		return studentIdent;
+		return studentIdentity;
 	}
 
 	public void setStudentIdent(String studentIdent) {
-		this.studentIdent = studentIdent;
+		this.studentIdentity = studentIdent;
 	}
 
 	public String getEncryptedPassword() {
@@ -98,7 +98,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentIdent="
-				+ studentIdent + ", encryptedPassword=" + encryptedPassword + ", email=" + email + ", courseList="
+				+ studentIdentity + ", encryptedPassword=" + encryptedPassword + ", email=" + email + ", courseList="
 				+ courses + "]";
 	}
 

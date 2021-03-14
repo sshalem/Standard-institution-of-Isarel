@@ -16,4 +16,7 @@ public class StudentFacade {
 		
 	}
 
+	public Student getByStudentIdentification(String identificationNumber) {
+		return studentDaoImpl.findByStudentIdentificationNumebr(identificationNumber);
+	}
 }

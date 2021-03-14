@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.sii.service.StudentUserDetailsService;
 
@@ -32,13 +33,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			.csrf().disable()
 			.authorizeRequests()
+//			.antMatchers("/", "/index", "/css/*", "/js/*", "/images/*").permitAll()
+			.antMatchers("/courses").authenticated()
 			.anyRequest()
 			.authenticated()
-			.and()
+		.and()
 			.formLogin()
-			.loginPage("/login.html")
-			.loginProcessingUrl("/student_login") // the URL to submit the username and password to
-			.permitAll();
+			.loginPage("/login")
+			.usernameParameter("username")
+			.passwordParameter("password")	
+//			.loginProcessingUrl("/student_login") // the URL to submit the username and password to
+			.defaultSuccessUrl("/courses", true)
+			.failureUrl("/login.html?error=true")
+			.permitAll()
+		.and()
+			.logout()
+			.invalidateHttpSession(true)
+			.clearAuthentication(true)
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout","POST"))
+			.logoutSuccessUrl("/logout")
+			.deleteCookies("JSESSIONID");
 	}
 }

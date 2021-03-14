@@ -32,4 +32,11 @@ public class StudentDaoImpl implements StudentDao {
 		return studentRepo.findById(id).get();
 	}
 
+	@Override
+	public Student findByStudentIdentificationNumebr(String identificationNumber) {
+		return studentRepo.findBystudentIdentity(identificationNumber);
+	}
+
+
+
 }
