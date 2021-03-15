@@ -18,6 +18,13 @@
     display: flex;
     /* border: 2px solid red; */
     justify-content: space-between;
+    align-items: baseline;
+}
+
+.studend-data-info {
+    font-size: 0.8rem;
+    color: blue;
+    margin-right: 10px;
 }
 
 .section-seperator {
