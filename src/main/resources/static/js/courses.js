@@ -13,6 +13,10 @@ fetch(location).then((res) => {
             fetch(`http://localhost:8080/students/get/${studentIdentity}`)
                 .then((res) => res.json())
                 .then((data) => updateStudentDetails(data));
+
+            fetch(`http://localhost:8080/students/get/courses/${studentIdentity}`)
+                .then((res) => res.json())
+                .then((data) => console.log(data));
         }
     }
 });
@@ -32,9 +36,3 @@ function updateStudentDetails(data) {
                 </div> 
     `;
 }
-
-/* <div id="identification">ת.ז.:</div>
-                <div id="firstName">שם פרטי:</div>
-                <div id="lastName">שם משפחה:</div>
-                <div id="email">אי-מייל:</div>
-                <div id="password">סיסמא:</div> */

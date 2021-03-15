@@ -1,5 +1,7 @@
 package com.sii.rest;
 
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sii.entity.Student;
+import com.sii.entity.StudentCourse;
 import com.sii.facade.StudentFacade;
 import com.sii.model.StudentDto;
 
@@ -38,6 +41,15 @@ public class StudentRestController {
 		StudentDto studentDto = new StudentDto(student.getFirstName(), student.getLastName(), student.getStudentIdent(),
 				student.getEmail());
 		return studentDto;
+	}
+
+	@GetMapping(path = "/get/courses/{identity}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public Set<StudentCourse> getCoursesPerStudentIdent(@PathVariable("identity") String identity){
+		LOGGER.info("return Courses Per Student");
+		LOGGER.info("student identity:" + identity);
+		Set<StudentCourse> allCoursesByStudentIdent = studentFacade.getAllCoursesByStudentIdent(identity);
+		System.out.println(allCoursesByStudentIdent);
+		return studentFacade.getAllCoursesByStudentIdent(identity);
 	}
 
 }

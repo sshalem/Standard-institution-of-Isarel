@@ -1,12 +1,14 @@
 package com.sii.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,14 +20,14 @@ public class Student {
 	private long id;
 	private String firstName;
 	private String lastName;
-	private String studentIdentity;
+	private String studentIdent;
 	private String encryptedPassword;
 	private String email;
 
-	@ManyToMany(mappedBy = "students")
-	private Set<Course> courses;
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+	private Set<StudentCourse> studentCourse = new HashSet<>();
 
-	public Student() {
+	public Student() { 
 		super();
 	}
 
@@ -33,7 +35,7 @@ public class Student {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.studentIdentity = studentIdent;
+		this.studentIdent = studentIdent;
 		this.encryptedPassword = encryptedPassword;
 		this.email = email;
 	}
@@ -63,11 +65,11 @@ public class Student {
 	}
 
 	public String getStudentIdent() {
-		return studentIdentity;
+		return studentIdent;
 	}
 
 	public void setStudentIdent(String studentIdent) {
-		this.studentIdentity = studentIdent;
+		this.studentIdent = studentIdent;
 	}
 
 	public String getEncryptedPassword() {
@@ -86,19 +88,29 @@ public class Student {
 		this.email = email;
 	}
 
-	public Set<Course> getCourseList() {
-		return courses;
+	public Set<StudentCourse> getStudentCourse() {
+		return studentCourse;
 	}
 
-	public void setCourseList(Set<Course> courseList) {
-		this.courses = courseList;
+	public void setStudentCourse(Set<StudentCourse> studentCourse) {
+		this.studentCourse = studentCourse;
+	}
+
+	public void addStudentCourse(StudentCourse studentCourse) {
+		this.studentCourse.add(studentCourse);
+		studentCourse.setStudent(this);
+	}
+
+	public void removeStudentCourse(StudentCourse studentCourse) {
+		this.studentCourse.remove(studentCourse);
+		studentCourse.setStudent(this);
 	}
 
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentIdent="
-				+ studentIdentity + ", encryptedPassword=" + encryptedPassword + ", email=" + email + ", courseList="
-				+ courses + "]";
+				+ studentIdent + ", encryptedPassword=" + encryptedPassword + ", email=" + email + ", studentCourse="
+				+ studentCourse + "]";
 	}
 
 }

@@ -1,6 +1,9 @@
 package com.sii.dao;
 
+import java.util.Set;
+
 import com.sii.entity.Student;
+import com.sii.entity.StudentCourse;
 
 public interface StudentDao {
 
@@ -13,5 +16,7 @@ public interface StudentDao {
 	void deleteStudentById(long id);
 	
 	Student findByStudentIdentificationNumebr(String identificationNumber);
+	
+	Set<StudentCourse> getCoursePerStudentIdent(String studentIdent);
 
 }
