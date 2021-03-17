@@ -20,8 +20,9 @@ fetch(location).then((res) => {
 
             console.log('------------------');
             console.log('------------------');
-
-            fetch(`http://localhost:8080/course/4009`)
+			
+			let courseNumber = 2500; 
+            fetch(`http://localhost:8080/course/${courseNumber}`)
                 .then((res) => res.json())
                 .then((data) => console.log(data));
         }

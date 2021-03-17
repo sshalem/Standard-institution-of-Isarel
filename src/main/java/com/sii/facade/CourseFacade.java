@@ -19,7 +19,7 @@ public class CourseFacade {
 		courseDaoImpl.createCourse(course);
 	}
 
-	public Set<StudentCourse> getListOfAssignedCoursesToStudent(int courseNumber) {
-		return courseDaoImpl.getListOfAssignedCoursesToStudent(courseNumber);
+	public Set<StudentCourse> listOfAssignedOrRegistredStudentsToCourse(int courseNumber) {
+		return courseDaoImpl.getListOfAssignedOrRegistredStudentsToCourse(courseNumber);
 	}
 }

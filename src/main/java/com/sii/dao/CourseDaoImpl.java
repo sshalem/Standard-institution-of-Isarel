@@ -36,8 +36,8 @@ public class CourseDaoImpl implements CourseDao {
 	}
 
 	@Override
-	public Set<StudentCourse> getListOfAssignedCoursesToStudent(int courseNumber) {
-		return courseRepo.getListOfAssignedCoursesToStudent(courseNumber);
+	public Set<StudentCourse> getListOfAssignedOrRegistredStudentsToCourse(int courseNumber) {
+		return courseRepo.getListOfAssignedOrRegisteredStudentsToCourse(courseNumber);
 	}
 
 }
