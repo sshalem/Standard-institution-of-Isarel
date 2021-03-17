@@ -11,6 +11,7 @@ import com.sii.entity.StudentCourse;
 
 public interface StudentCourseRepository extends JpaRepository<StudentCourse, Long> {
 
+	// this returns a list of courses for a certain Student , by searching the StudentIdentity
 	@Query("SELECT course from StudentCourse sc JOIN sc.course as course WHERE sc.studentIdent=:studentIdent")
 	public Set<Course> getCourseOfStudent(@Param("studentIdent") String studentIdent);
 
