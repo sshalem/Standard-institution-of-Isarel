@@ -1,4 +1,4 @@
-package com.sii.model;
+package com.sii.dto;
 
 public class StudentDto {
 

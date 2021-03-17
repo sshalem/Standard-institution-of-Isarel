@@ -23,7 +23,7 @@ public class CoursesController {
 	@GetMapping("/courses")
 	public String coursesPage(HttpServletRequest request, HttpServletResponse response) {
 
-		Student student = studentFacade.getByStudentIdentification(request.getUserPrincipal().getName());
+		Student student = studentFacade.getStudentByStudentIdentification(request.getUserPrincipal().getName());
 		response.addHeader("studentID", student.getStudentIdent());
 		LOGGER.info(student.getFirstName() + " " + student.getLastName());
 		return "courses.html";

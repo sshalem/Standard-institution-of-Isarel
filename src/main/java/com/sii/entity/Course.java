@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "course")
 public class Course {
@@ -26,6 +28,7 @@ public class Course {
 	private LocalDate endDate;
 
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<StudentCourse> studentCourse = new HashSet<>();
 
 	public Course() {
@@ -107,10 +110,10 @@ public class Course {
 		studentCourse.setCourse(this);
 	}
 
-	@Override
-	public String toString() {
-		return "Course [id=" + id + ", courseNumber=" + courseNumber + ", courseName=" + courseName + ", year=" + year
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", studentCourse=" + studentCourse + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Course [id=" + id + ", courseNumber=" + courseNumber + ", courseName=" + courseName + ", year=" + year
+//				+ ", startDate=" + startDate + ", endDate=" + endDate + ", studentCourse=" + studentCourse + "]";
+//	}
 
 }

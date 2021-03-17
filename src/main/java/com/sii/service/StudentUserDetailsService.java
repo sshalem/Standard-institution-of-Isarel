@@ -20,7 +20,7 @@ public class StudentUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String identificationNumber) throws UsernameNotFoundException {
-		Student student = studentFacade.getByStudentIdentification(identificationNumber);
+		Student student = studentFacade.getStudentByStudentIdentification(identificationNumber);
 
 		User user = new User(
 				student.getStudentIdent(), 

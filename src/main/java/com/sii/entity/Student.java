@@ -27,7 +27,7 @@ public class Student {
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
 	private Set<StudentCourse> studentCourse = new HashSet<>();
 
-	public Student() { 
+	public Student() {
 		super();
 	}
 
@@ -106,11 +106,11 @@ public class Student {
 		studentCourse.setStudent(this);
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentIdent="
-				+ studentIdent + ", encryptedPassword=" + encryptedPassword + ", email=" + email + ", studentCourse="
-				+ studentCourse + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentIdent="
+//				+ studentIdent + ", encryptedPassword=" + encryptedPassword + ", email=" + email + ", studentCourse="
+//				+ studentCourse + "]";
+//	}
 
 }

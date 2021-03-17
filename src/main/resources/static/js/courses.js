@@ -17,6 +17,13 @@ fetch(location).then((res) => {
             fetch(`http://localhost:8080/students/get/courses/${studentIdentity}`)
                 .then((res) => res.json())
                 .then((data) => console.log(data));
+
+            console.log('------------------');
+            console.log('------------------');
+
+            fetch(`http://localhost:8080/course/4009`)
+                .then((res) => res.json())
+                .then((data) => console.log(data));
         }
     }
 });

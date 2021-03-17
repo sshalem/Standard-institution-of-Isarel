@@ -67,27 +67,28 @@ public class DataBaseInitializer implements CommandLineRunner {
 		Student dani = new Student("דני", "ברק", "6666", daniPassword, "avigail.shalem@gmail.com");
 		studentDaoImpl.createStudent(dani);
 
-		String rafiPassword = passwordEncoder.encode("ariel");
+		String rafiPassword = passwordEncoder.encode("rafi");
 		Student rafi = new Student("רפי", "שלם", "7777", rafiPassword, "ariel.shalem@gmail.com");
 		studentDaoImpl.createStudent(rafi);
 
-		String eranPassword = passwordEncoder.encode("itamar");
+		String eranPassword = passwordEncoder.encode("eran");
 		Student eran = new Student("ערן", "כהן", "8888", eranPassword, "itamar.shalem@gmail.com");
 		studentDaoImpl.createStudent(eran);
 	}
 
 	private void initializeCourseAndStudentCourse() {
 		// create Course
-		Course java = new Course((int) (Math.random() * (10) + 1000), "java", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int javaCourseNumber = (int) (Math.random() * (10) + 1000);
+		Course java = new Course(javaCourseNumber, "java", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		// Create StudentCourse , here we assign a Course to a Student(or students) studentIdentity 
 		// So when we want to get a list of Course per Student , 
 		// the student will see only the course he took , or wants to take 
-		StudentCourse rafiToJava = new StudentCourse("7777");
-		StudentCourse daniToJava = new StudentCourse("6666");
-		StudentCourse odelToJava = new StudentCourse("1111");
-		StudentCourse arielToJava = new StudentCourse("3333");
-		StudentCourse avigailToJava = new StudentCourse("2222");
-		StudentCourse itamarToJava = new StudentCourse("4444");
+		StudentCourse rafiToJava = new StudentCourse("7777", javaCourseNumber);		
+		StudentCourse daniToJava = new StudentCourse("6666", javaCourseNumber);
+		StudentCourse odelToJava = new StudentCourse("1111", javaCourseNumber);
+		StudentCourse arielToJava = new StudentCourse("3333", javaCourseNumber);
+		StudentCourse avigailToJava = new StudentCourse("2222", javaCourseNumber);
+		StudentCourse itamarToJava = new StudentCourse("4444", javaCourseNumber);
 		java.addStudentCourse(rafiToJava);
 		java.addStudentCourse(arielToJava);
 		java.addStudentCourse(odelToJava);
@@ -96,13 +97,14 @@ public class DataBaseInitializer implements CommandLineRunner {
 		java.addStudentCourse(avigailToJava);
 		courseDaoImpl.createCourse(java);
 		
-		Course python = new Course((int) (Math.random() * (20) + 2000), "python", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
-		StudentCourse rafiToPython = new StudentCourse("7777");
-		StudentCourse daniToPython = new StudentCourse("6666");
-		StudentCourse odelToPython = new StudentCourse("1111");
-		StudentCourse arielToPython = new StudentCourse("3333");
-		StudentCourse avigailToPython = new StudentCourse("2222");
-		StudentCourse itamarToPython = new StudentCourse("4444");
+		int pythonCourseNumber = (int) (Math.random() * (20) + 2000);
+		Course python = new Course(pythonCourseNumber, "python", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		StudentCourse rafiToPython = new StudentCourse("7777", pythonCourseNumber);
+		StudentCourse daniToPython = new StudentCourse("6666", pythonCourseNumber);
+		StudentCourse odelToPython = new StudentCourse("1111", pythonCourseNumber);
+		StudentCourse arielToPython = new StudentCourse("3333", pythonCourseNumber);
+		StudentCourse avigailToPython = new StudentCourse("2222", pythonCourseNumber);
+		StudentCourse itamarToPython = new StudentCourse("4444", pythonCourseNumber);
 		python.addStudentCourse(rafiToPython);
 		python.addStudentCourse(daniToPython);
 		python.addStudentCourse(odelToPython);
@@ -111,77 +113,88 @@ public class DataBaseInitializer implements CommandLineRunner {
 		python.addStudentCourse(itamarToPython);		
 		courseDaoImpl.createCourse(python);
 
-		Course javascript = new Course((int) (Math.random() * (30) + 3000), "javascript", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
-		StudentCourse odelToJavascript = new StudentCourse("1111");
-		StudentCourse arielToJavascript = new StudentCourse("3333");
-		StudentCourse avigailToJavascript = new StudentCourse("2222");
-		StudentCourse itamarToJavascript = new StudentCourse("4444");
+		int jsCourseNumber = (int) (Math.random() * (30) + 3000);
+		Course javascript = new Course(jsCourseNumber, "javascript", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		StudentCourse odelToJavascript = new StudentCourse("1111", jsCourseNumber);
+		StudentCourse arielToJavascript = new StudentCourse("3333", jsCourseNumber);
+		StudentCourse avigailToJavascript = new StudentCourse("2222", jsCourseNumber);
+		StudentCourse itamarToJavascript = new StudentCourse("4444", jsCourseNumber);
 		javascript.addStudentCourse(odelToJavascript);
 		javascript.addStudentCourse(arielToJavascript);
 		javascript.addStudentCourse(avigailToJavascript);
 		javascript.addStudentCourse(itamarToJavascript);	
 		courseDaoImpl.createCourse(javascript);
 
-		Course angular = new Course((int) (Math.random() * (40) + 4000), "angular", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
-		StudentCourse odelToAngular = new StudentCourse("1111");
-		StudentCourse arielToAngular = new StudentCourse("3333");
-		StudentCourse avigailToAngular = new StudentCourse("2222");
-		StudentCourse itamarToAngular = new StudentCourse("4444");
+		int angularCourseNum = (int) (Math.random() * (40) + 4000);
+		Course angular = new Course(angularCourseNum, "angular", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		StudentCourse odelToAngular = new StudentCourse("1111", angularCourseNum);
+		StudentCourse arielToAngular = new StudentCourse("3333", angularCourseNum);
+		StudentCourse avigailToAngular = new StudentCourse("2222", angularCourseNum);
+		StudentCourse itamarToAngular = new StudentCourse("4444", angularCourseNum);
 		angular.addStudentCourse(odelToAngular);
 		angular.addStudentCourse(arielToAngular);
 		angular.addStudentCourse(avigailToAngular);
 		angular.addStudentCourse(itamarToAngular);	
 		courseDaoImpl.createCourse(angular);
 
-		Course react = new Course((int) (Math.random() * (50) + 5000), "react", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int reactCourseNum = (int) (Math.random() * (50) + 5000);
+		Course react = new Course(reactCourseNum, "react", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseReact = new StudentCourse();
 		react.addStudentCourse(studentCourseReact);
 		courseDaoImpl.createCourse(react);
 
-		Course sql = new Course((int) (Math.random() * (60) + 6000), "sql", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int sqlCourseNum = (int) (Math.random() * (60) + 6000);
+		Course sql = new Course(sqlCourseNum, "sql", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseSql = new StudentCourse();
 		sql.addStudentCourse(studentCourseSql);
 		courseDaoImpl.createCourse(sql);
 
-		Course html = new Course((int) (Math.random() * (70) + 7000), "html", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int htmlCourseNum = (int) (Math.random() * (70) + 7000);
+		Course html = new Course(htmlCourseNum, "html", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseHtml = new StudentCourse();
 		html.addStudentCourse(studentCourseHtml);
 		courseDaoImpl.createCourse(html);
 
-		Course css = new Course((int) (Math.random() * (80) + 8000), "css", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int cssCourseNum = (int) (Math.random() * (80) + 8000);
+		Course css = new Course(cssCourseNum, "css", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseCss = new StudentCourse();
 		css.addStudentCourse(studentCourseCss);
 		courseDaoImpl.createCourse(css);
 		
-		Course history = new Course((int) (Math.random() * (90) + 9000), "היסטוריה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int historyCourseNum = (int) (Math.random() * (90) + 9000);
+		Course history = new Course(historyCourseNum, "היסטוריה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCoursehistory = new StudentCourse();
 		history.addStudentCourse(studentCoursehistory);
 		courseDaoImpl.createCourse(history);
 		
-		Course geography = new Course((int) (Math.random() * (15) + 1500), "גאוגרפיה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int geographyCourseNum = (int) (Math.random() * (15) + 1500);
+		Course geography = new Course(geographyCourseNum, "גאוגרפיה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseGeography = new StudentCourse();
 		geography.addStudentCourse(studentCourseGeography);
 		courseDaoImpl.createCourse(geography);
 		
-		Course algebra = new Course((int) (Math.random() * (25) + 2500), "אלגברה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		int algebraCourseNum = (int) (Math.random() * (25) + 2500);
+		Course algebra = new Course(algebraCourseNum, "אלגברה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseAlgebra = new StudentCourse();
 		algebra.addStudentCourse(studentCourseAlgebra);
 		courseDaoImpl.createCourse(algebra);
 		
-		Course stats = new Course((int) (Math.random() * (25) + 2500), "סטטיסטיקה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
-		StudentCourse odelToStats = new StudentCourse("1111");
-		StudentCourse arielToStats = new StudentCourse("3333");
-		StudentCourse avigailToStats = new StudentCourse("2222");
-		StudentCourse itamarToStats = new StudentCourse("4444");
+		int statsCourseNum = (int) (Math.random() * (25) + 2500);
+		Course stats = new Course(statsCourseNum, "סטטיסטיקה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		StudentCourse odelToStats = new StudentCourse("1111", statsCourseNum);
+		StudentCourse arielToStats = new StudentCourse("3333", statsCourseNum);
+		StudentCourse avigailToStats = new StudentCourse("2222", statsCourseNum);
+		StudentCourse itamarToStats = new StudentCourse("4444", statsCourseNum);
 		stats.addStudentCourse(odelToStats);
 		stats.addStudentCourse(arielToStats);
 		stats.addStudentCourse(avigailToStats);
 		stats.addStudentCourse(itamarToStats);	
 		courseDaoImpl.createCourse(stats);
 		
-		Course hashmal = new Course((int) (Math.random() * (25) + 2500), "חשמל", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
-		StudentCourse arielToHashmal = new StudentCourse("3333");
-		StudentCourse itamarToHashmal = new StudentCourse("4444");
+		int hashmalCourseNum = (int) (Math.random() * (25) + 2500);
+		Course hashmal = new Course(hashmalCourseNum, "חשמל", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
+		StudentCourse arielToHashmal = new StudentCourse("3333", hashmalCourseNum);
+		StudentCourse itamarToHashmal = new StudentCourse("4444", hashmalCourseNum);
 		hashmal.addStudentCourse(arielToHashmal);
 		hashmal.addStudentCourse(itamarToHashmal);
 		courseDaoImpl.createCourse(hashmal);

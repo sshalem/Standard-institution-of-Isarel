@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sii.dto.StudentDto;
+import com.sii.entity.Course;
 import com.sii.entity.Student;
-import com.sii.entity.StudentCourse;
 import com.sii.facade.StudentFacade;
-import com.sii.model.StudentDto;
 
 @RestController
 @RequestMapping("/students")
@@ -37,19 +37,19 @@ public class StudentRestController {
 //		LOGGER.info("facade: " + studentFacade.hashCode());
 //		LOGGER.info("context: " + ctx.getBean(StudentFacade.class).hashCode());
 
-		Student student = studentFacade.getByStudentIdentification(identity);
+		Student student = studentFacade.getStudentByStudentIdentification(identity);
 		StudentDto studentDto = new StudentDto(student.getFirstName(), student.getLastName(), student.getStudentIdent(),
 				student.getEmail());
 		return studentDto;
 	}
 
 	@GetMapping(path = "/get/courses/{identity}",produces = MediaType.APPLICATION_JSON_VALUE)
-	public Set<StudentCourse> getCoursesPerStudentIdent(@PathVariable("identity") String identity){
+	public Set<Course> getAllCoursesOfStudentByStudentIdentity(@PathVariable("identity") String identity){
 		LOGGER.info("return Courses Per Student");
 		LOGGER.info("student identity:" + identity);
-		Set<StudentCourse> allCoursesByStudentIdent = studentFacade.getAllCoursesByStudentIdent(identity);
-		System.out.println(allCoursesByStudentIdent);
-		return studentFacade.getAllCoursesByStudentIdent(identity);
+//		Set<StudentCourse> allCoursesByStudentIdent = studentFacade.getAllCoursesByStudentIdent(identity);
+//		System.out.println(allCoursesByStudentIdent);
+		return studentFacade.getAllCoursesForStudentByStudentIdentity(identity);
 	}
 
 }

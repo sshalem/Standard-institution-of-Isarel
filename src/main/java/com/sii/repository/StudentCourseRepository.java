@@ -9,9 +9,9 @@ import org.springframework.data.repository.query.Param;
 import com.sii.entity.Course;
 import com.sii.entity.StudentCourse;
 
-public interface CourseRepository extends JpaRepository<Course, Long> {
+public interface StudentCourseRepository extends JpaRepository<StudentCourse, Long> {
 
-	@Query("SELECT sc FROM Course course JOIN course.studentCourse AS sc WHERE sc.courseNumber=:courseNumber")
-	public Set<StudentCourse> getListOfAssignedCoursesToStudent(@Param("courseNumber") int courseNumber);
+	@Query("SELECT course from StudentCourse sc JOIN sc.course as course WHERE sc.studentIdent=:studentIdent")
+	public Set<Course> getCourseOfStudent(@Param("studentIdent") String studentIdent);
 
 }

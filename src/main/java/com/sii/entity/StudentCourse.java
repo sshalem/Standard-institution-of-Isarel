@@ -36,9 +36,10 @@ public class StudentCourse {
 		super();
 	}
 
-	public StudentCourse(String studentIdent) {
+	public StudentCourse(String studentIdent, int courseNumber) {
 		super();
 		this.studentIdent = studentIdent;
+		this.courseNumber = courseNumber;
 	}
 
 	public long getId() {
@@ -97,11 +98,11 @@ public class StudentCourse {
 		this.courseNumber = courseNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "StudentCourse [id=" + id + ", studentIdent=" + studentIdent + ", courseNumber=" + courseNumber
-				+ ", grade=" + grade + ", registrationDate=" + registrationDate + ", student=" + student + ", course="
-				+ course + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "StudentCourse [id=" + id + ", studentIdent=" + studentIdent + ", courseNumber=" + courseNumber
+//				+ ", grade=" + grade + ", registrationDate=" + registrationDate + ", student=" + student + ", course="
+//				+ course + "]";
+//	}
 
 }

@@ -1,12 +1,9 @@
 package com.sii.dao;
 
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sii.entity.Student;
-import com.sii.entity.StudentCourse;
 import com.sii.repository.StudentRepository;
 
 @Service
@@ -38,11 +35,6 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public Student findByStudentIdentificationNumebr(String identificationNumber) {
 		return studentRepo.findByStudentIdent(identificationNumber);
-	}
-
-	@Override
-	public Set<StudentCourse> getCoursePerStudentIdent(String studentIdent) {
-		return studentRepo.getAllCoursesForStudentIdent(studentIdent);
 	}
 
 }
