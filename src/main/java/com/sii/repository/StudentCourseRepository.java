@@ -11,8 +11,11 @@ import com.sii.entity.StudentCourse;
 
 public interface StudentCourseRepository extends JpaRepository<StudentCourse, Long> {
 
-	// this returns a list of courses for a certain Student , by searching the StudentIdentity
-	@Query("SELECT course from StudentCourse sc JOIN sc.course as course WHERE sc.studentIdent=:studentIdent")
-	public Set<Course> getCourseOfStudent(@Param("studentIdent") String studentIdent);
+	// returns a LIST of courses for a certain Student , by searching the studentIdentity
+	@Query("SELECT course FROM StudentCourse sc JOIN sc.course as course WHERE sc.studentIdent=:studentIdent")
+	public Set<Course> getCoursesOfStudent(@Param("studentIdent") String studentIdent);
 
+	// returns a StudentCourse by searching studentIdentity And courseNumber.
+	@Query("SELECT sc FROM StudentCourse sc WHERE sc.studentIdent=:studentIdent AND sc.courseNumber=:courseNumber")
+	public StudentCourse getStudentCourseByStudentAndCourseNumber(@Param("studentIdent") String studentIdent, @Param("courseNumber") int courseNumber);
 }

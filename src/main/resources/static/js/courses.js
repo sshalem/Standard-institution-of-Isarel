@@ -10,26 +10,30 @@ fetch(location).then((res) => {
         if (header[0] === 'studentid') {
             console.log(header[1]);
             studentIdentity = header[1];
+
+            // Http Get Request for Student who is logged in
+            // Show student details on page
             fetch(`http://localhost:8080/students/get/${studentIdentity}`)
                 .then((res) => res.json())
-                .then((data) => updateStudentDetails(data));
+                .then((data) => presentStudentDetailsUI(data));
 
-            fetch(`http://localhost:8080/students/get/courses/${studentIdentity}`)
+            /* Http Get Request 
+             1. for all the courses a Student took
+             2. for all the courses that are assigned to a student and he can register to them               
+            */
+            fetch(`http://localhost:8080/studentcourse/all/${studentIdentity}`)
                 .then((res) => res.json())
-                .then((data) => console.log(data));
+                .then((data) => presentStudentCoursesUI(data));
 
-            console.log('------------------');
-            console.log('------------------');
-			
-			let courseNumber = 2500; 
-            fetch(`http://localhost:8080/course/${courseNumber}`)
-                .then((res) => res.json())
-                .then((data) => console.log(data));
+            // let courseNumber = 2500;
+            // fetch(`http://localhost:8080/course/${courseNumber}`)
+            //     .then((res) => res.json())
+            //     .then((data) => console.log(data));
         }
     }
 });
 
-function updateStudentDetails(data) {
+function presentStudentDetailsUI(data) {
     console.log(data);
     studentData.innerHTML = `
         <div class="student identification">ת.ז.: <span class="studend-data-info">${data.studentIdentity}</span></div>
@@ -44,3 +48,31 @@ function updateStudentDetails(data) {
                 </div> 
     `;
 }
+
+function presentStudentCoursesUI(data) {
+    let coursesTable = document.getElementById('present-courses-table');
+    console.log(coursesTable);
+    data.forEach((studentCourse) => {
+        console.log(studentCourse);
+        coursesTable.innerHTML += `
+        <tr>
+            <td>${studentCourse.courseNumber}</td>
+            <td>${studentCourse.courseName}</td>
+            <td>${studentCourse.grade}</td>
+            <td>${studentCourse.startDate}</td>
+            <td>${studentCourse.endDate}</td>
+            <td>${studentCourse.registrationDate}</td>
+        </tr>`;
+    });
+}
+
+// console.log(studentCourse);
+// coursesTable += `
+// <tr>
+//     <td>${courseNumber}</td>
+//     <td>${courseName}</td>
+//     <td>${grade}</td>
+//     <td>${startDate}</td>
+//     <td>${endDate}</td>
+//     <td>${registrationDate}</td>
+// </tr>`;

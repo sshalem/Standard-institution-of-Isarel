@@ -15,6 +15,6 @@ public interface CourseDao {
 
 	void deleteCourseById(long id);
 
-	Set<StudentCourse> getListOfAssignedOrRegistredStudentsToCourse(int courseNumber);
+	Set<StudentCourse> getListOfStudentsAssignedOrRegisteredToCourse(int courseNumber);
 
 }

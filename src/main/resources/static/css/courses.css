@@ -50,6 +50,11 @@ th {
     border: 2px solid green;
 }
 
+tr {
+    /* font-size: 1.1rem; */
+    border: 2px solid green;
+}
+
 .table-date-width {
     width: 15%;
 }

@@ -35,9 +35,12 @@ public class CourseDaoImpl implements CourseDao {
 		courseRepo.deleteById(id);
 	}
 
+	/**
+	 * return All the students that are assigned/registered to a Course by courseNumber
+	 */
 	@Override
-	public Set<StudentCourse> getListOfAssignedOrRegistredStudentsToCourse(int courseNumber) {
-		return courseRepo.getListOfAssignedOrRegisteredStudentsToCourse(courseNumber);
+	public Set<StudentCourse> getListOfStudentsAssignedOrRegisteredToCourse(int courseNumber) {
+		return courseRepo.getListOfStudentsAssignedOrRegisteredToCourse(courseNumber);
 	}
 
 }

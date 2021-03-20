@@ -1,7 +1,5 @@
 package com.sii.rest;
 
-import java.util.Set;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sii.dto.StudentDto;
-import com.sii.entity.Course;
 import com.sii.entity.Student;
 import com.sii.facade.StudentFacade;
 
@@ -43,13 +40,21 @@ public class StudentRestController {
 		return studentDto;
 	}
 
-	@GetMapping(path = "/get/courses/{identity}",produces = MediaType.APPLICATION_JSON_VALUE)
-	public Set<Course> getAllCoursesOfStudentByStudentIdentity(@PathVariable("identity") String identity){
-		LOGGER.info("return Courses Per Student");
-		LOGGER.info("student identity:" + identity);
+	/**
+	 * 
+	 */
+//	@GetMapping(path = "/get/courses/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public Set<Course> getAllCoursesOfStudentByStudentIdentity(@PathVariable("identity") String identity) {
+//		LOGGER.info("return Courses Per Student");
 //		Set<StudentCourse> allCoursesByStudentIdent = studentFacade.getAllCoursesByStudentIdent(identity);
 //		System.out.println(allCoursesByStudentIdent);
-		return studentFacade.getAllCoursesForStudentByStudentIdentity(identity);
-	}
+//		return studentFacade.getAllCoursesForStudentByStudentIdentity(identity);
+//	}
+
+//	@GetMapping(path = "/get/studentcourses/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public Set<Course> getStudentCoursesPerStudentIdentity(@PathVariable("identity") String identity) {
+//		LOGGER.info("method : getStudentCoursesPerStudentIdentity");
+//		return studentFacade.getAllCoursesForStudentByStudentIdentity(identity);
+//	}
 
 }
