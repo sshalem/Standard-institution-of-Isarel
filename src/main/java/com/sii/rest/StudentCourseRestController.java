@@ -25,6 +25,11 @@ public class StudentCourseRestController {
 	@Autowired
 	private StudentCourseFacade studentCourseFacade;
 
+	/**
+	 * 
+	 * @param identity
+	 * @return StudentCourseDto - returns all courses assigned to a Student
+	 */
 	@GetMapping(path = "/all/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Set<StudentCourseDto> getStudentCoursesPerStudentIdentity(@PathVariable("identity") String identity) {
 		LOGGER.info("Get method ");

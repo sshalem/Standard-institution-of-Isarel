@@ -40,21 +40,4 @@ public class StudentRestController {
 		return studentDto;
 	}
 
-	/**
-	 * 
-	 */
-//	@GetMapping(path = "/get/courses/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public Set<Course> getAllCoursesOfStudentByStudentIdentity(@PathVariable("identity") String identity) {
-//		LOGGER.info("return Courses Per Student");
-//		Set<StudentCourse> allCoursesByStudentIdent = studentFacade.getAllCoursesByStudentIdent(identity);
-//		System.out.println(allCoursesByStudentIdent);
-//		return studentFacade.getAllCoursesForStudentByStudentIdentity(identity);
-//	}
-
-//	@GetMapping(path = "/get/studentcourses/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public Set<Course> getStudentCoursesPerStudentIdentity(@PathVariable("identity") String identity) {
-//		LOGGER.info("method : getStudentCoursesPerStudentIdentity");
-//		return studentFacade.getAllCoursesForStudentByStudentIdentity(identity);
-//	}
-
 }
