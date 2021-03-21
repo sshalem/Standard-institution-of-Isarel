@@ -1,3 +1,11 @@
+:root {
+    --mainBlue: #407ffa;
+    --transparentblue: rgba(64,  172,  241,  0.7);
+    --mainwhite: #ffffff;
+    --mainblack: #292f36;
+    --mainGrey: #c0c0c0;
+    --mainGreen: #3fffc0;
+}
 * {
     padding: 0;
     margin: 0;
@@ -57,4 +65,26 @@ tr {
 
 .table-date-width {
     width: 15%;
+}
+
+.btn-modify {
+    width: 5rem;
+    margin-right: 0.5rem;
+    color: var(--mainBlue);
+    background-color: var(--mainGreen);
+    font-size: 0.7rem;
+    border-radius: 50px;
+    outline: none !important;
+    border: none;
+}
+
+.btn-modify:hover {
+    background-color: var(--mainGrey);
+}
+
+.btn-primary {
+    width: 4rem;
+    padding: 0.3rem !important;
+    font-size: 0.7rem !important;
+    border-radius: 50px !important;
 }

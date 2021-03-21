@@ -4,6 +4,9 @@ const courseData = document.getElementById('table-data');
 const studentData = document.querySelector('.student');
 const email = document.querySelector('.email');
 
+const btnModifyEmail = document.querySelector('.btn-modify-email');
+const btnModifyPassword = document.querySelector('.btn-modify-password');
+
 let studentIdentity = null;
 
 fetch(location).then((res) => {
@@ -30,27 +33,17 @@ fetch(location).then((res) => {
     }
 });
 
-email.addEventListener('click', function () {});
-
 function presentStudentDetailsUI(data) {
     console.log(data);
-    studentData.innerHTML = `
-        <div class="student identification">ת.ז.: <span class="studend-data-info">${data.studentIdentity}</span></div>
-        <div class="student firstName">שם פרטי: <span class="studend-data-info">${data.firstName}</span></div>
-        <div class="student lastName">שם משפחה: <span class="studend-data-info">${data.lastName}</span></div>
-        <div class="student email">אי-מייל: <span class="studend-data-info">${data.email}</span><span><button>עדכן אימייל</button></span></div>
-        <div class="student password">סיסמא: <span class="studend-data-info">${data.encryptedPassword}</span><span><button>עדכן סיסמא</button></span></div>
-        <div class="student logout">
-                    <form action="http://localhost:8080/logout" method="post">
-                        <button type="submit">יציאה</button>
-                    </form>
-                </div> 
-    `;
+    document.querySelector('.identification').lastChild.innerText = data.studentIdentity;
+    document.querySelector('.firstName').lastChild.innerText = data.firstName;
+    document.querySelector('.lastName').lastChild.innerText = data.lastName;
+    document.querySelector('.email').childNodes[1].innerText = data.email;
+    document.querySelector('.password').childNodes[1].innerText = data.encryptedPassword;
 }
 
 function presentStudentCoursesUI(data) {
     let coursesTable = document.getElementById('present-courses-table');
-    console.log(coursesTable);
     data.forEach((studentCourse) => {
         console.log(studentCourse);
         coursesTable.innerHTML += `
@@ -64,3 +57,7 @@ function presentStudentCoursesUI(data) {
         </tr>`;
     });
 }
+
+btnModifyEmail.addEventListener('click', function () {
+    console.log(document.querySelector('.btn-modify-email').innerHTML);
+});

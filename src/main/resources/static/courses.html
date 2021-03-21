@@ -25,9 +25,18 @@
             </header>
             <hr />
             <section class="student">
+                <div class="student identification">ת.ז.: <span class="studend-data-info"></span></div>
+                <div class="student firstName">שם פרטי: <span class="studend-data-info"></span></div>
+                <div class="student lastName">שם משפחה: <span class="studend-data-info"></span></div>
+                <div class="student email">
+                    אי-מייל: <span class="studend-data-info"></span><span><button class="btn-modify btn-modify-email">שינוי אימייל</button></span>
+                </div>
+                <div class="student password">
+                    סיסמא: <span class="studend-data-info"></span><span><button class="btn-modify btn-modify-password">שינוי סיסמא</button></span>
+                </div>
                 <div class="student logout">
                     <form action="http://localhost:8080/logout" method="post">
-                        <button type="submit">יציאה</button>
+                        <button type="submit" class="btn btn-primary">יציאה</button>
                     </form>
                 </div>
             </section>
