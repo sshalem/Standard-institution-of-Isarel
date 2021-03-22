@@ -4,10 +4,31 @@ const courseData = document.getElementById('table-data');
 const studentData = document.querySelector('.student');
 const email = document.querySelector('.email');
 
+const modifyEmail = document.getElementById('modifyEmail');
 const btnModifyEmail = document.querySelector('.btn-modify-email');
+
+const modifyUpdateCancel = document.getElementById('modifyUpdateCancel');
+const btnModifyUpdate = document.querySelector('.btn-modify-update');
+const btnModifyCancel = document.querySelector('.btn-modify-cancel');
+
 const btnModifyPassword = document.querySelector('.btn-modify-password');
 
 let studentIdentity = null;
+
+btnModifyEmail.addEventListener('click', function (event) {
+    modifyEmail.classList.add('hide');
+    modifyUpdateCancel.classList.remove('hide');
+});
+
+btnModifyUpdate.addEventListener('click', function (event) {
+    modifyUpdateCancel.classList.add('hide');
+    modifyEmail.classList.remove('hide');
+});
+
+btnModifyCancel.addEventListener('click', function (event) {
+    modifyUpdateCancel.classList.add('hide');
+    modifyEmail.classList.remove('hide');
+});
 
 fetch(location).then((res) => {
     for (let header of res.headers.entries()) {
@@ -45,19 +66,15 @@ function presentStudentDetailsUI(data) {
 function presentStudentCoursesUI(data) {
     let coursesTable = document.getElementById('present-courses-table');
     data.forEach((studentCourse) => {
-        console.log(studentCourse);
+        const { courseNumber, courseName, grade, startDate, endDate, registrationDate } = studentCourse;
         coursesTable.innerHTML += `
         <tr>
-            <td>${studentCourse.courseNumber}</td>
-            <td>${studentCourse.courseName}</td>
-            <td>${studentCourse.grade}</td>
-            <td>${studentCourse.startDate}</td>
-            <td>${studentCourse.endDate}</td>
-            <td>${studentCourse.registrationDate}</td>
+            <td>${courseNumber}</td>
+            <td>${courseName}</td>
+            <td>${grade}</td>
+            <td>${startDate}</td>
+            <td>${endDate}</td>
+            <td>${registrationDate}</td>
         </tr>`;
     });
 }
-
-btnModifyEmail.addEventListener('click', function () {
-    console.log(document.querySelector('.btn-modify-email').innerHTML);
-});

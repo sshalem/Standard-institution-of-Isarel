@@ -88,3 +88,7 @@ tr {
     font-size: 0.7rem !important;
     border-radius: 50px !important;
 }
+
+.hide {
+    display: none;
+}
