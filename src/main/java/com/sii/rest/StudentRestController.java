@@ -42,10 +42,15 @@ public class StudentRestController {
 		LOGGER.info(" ---> " + studentDto);
 		return studentDto;
 	}
-
-	@PostMapping(path = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public StudentDto updateStudentDetails(@RequestBody StudentDto studentDto) {
-		return studentFacade.updateStudentDetails(studentDto);
+ 
+	@PostMapping(path = "/updateEmail", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public StudentDto updateStudentEmail(@RequestBody StudentDto studentDto) {
+		return studentFacade.updateStudentEmail(studentDto);
 	}
 
+	@PostMapping(path = "/updatePassword", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public StudentDto updateStudentPassword(@RequestBody StudentDto studentDto) {
+		return studentFacade.updateStudentPassword(studentDto);
+	}
+	
 }

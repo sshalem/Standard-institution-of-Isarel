@@ -6,24 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/courses.css" />
         <!-- Latest compiled and minified CSS, jQuery library ,Popper JS, Latest compiled JavaScript-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
         <title>קורסים</title>
     </head>
     <body>
         <div class="container">
             <header class="header">
-                <h1 class="header-title">ברוך הבא לעמוד רישום הקורסים</h1>
+                <h1 class="header-title">רשימת קורסים לסטודנט</h1>
             </header>
             <hr />
             <section class="student">
-                <div class="student">id:<span class="student-data identification"></span></div>
-                <div class="student">firsrName:<span class="student-data firstName"></span></div>
-                <div class="student">lastName:<span class="student-data lastName"></span></div>
+                <div class="student">ת.ז.:<span class="student-data identification"></span></div>
+                <div class="student">פרטי:<span class="student-data firstName"></span></div>
+                <div class="student">משפחה:<span class="student-data lastName"></span></div>
                 <div class="student">
-                    email:<span class="student-data email"></span
+                    מייל:<span class="student-data email"></span
                     ><span id="modifyEmail"><button class="btn-modify btn-modify-email">שינוי אימייל</button></span>
                     <span id="modifyUpdateCancel" class="hide">
                         <input type="email" name="" id="email-input" />
@@ -32,8 +32,8 @@
                     </span>
                 </div>
                 <div class="student">
-                    password:<span class="student-data password"></span
-                    ><span id="modifyPassword"><button class="btn-modify btn-modify-password">שינוי סיסמא</button></span>
+                    סיסמא:<span class="student-data password"></span>
+                    <span id="modifyPassword"><button class="btn-modify btn-modify-password">שינוי סיסמא</button></span>
                     <span id="modifyUpdateCancelPassword" class="hide">
                         <input type="password" name="" id="password-input" />
                         <button class="btn-modify btn-modify-update-password">עדכן</button>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="student logout">
                     <form action="http://localhost:8080/logout" method="post">
-                        <button type="submit" class="btn btn-primary">יציאה</button>
+                        <button type="submit" class="btn-logout">יציאה</button>
                     </form>
                 </div>
             </section>

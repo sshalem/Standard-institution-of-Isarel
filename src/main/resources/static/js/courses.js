@@ -101,7 +101,7 @@ btnEmailUpdate.addEventListener('click', function (event) {
 
     console.log(options);
 
-    fetch(`http://localhost:8080/students/update`, options)
+    fetch(`http://localhost:8080/students/updateEmail`, options)
         .then((res) => res.json())
         .then((data) => studentDetailsUI(data));
 
@@ -110,7 +110,7 @@ btnEmailUpdate.addEventListener('click', function (event) {
     modifyUpdateCancel.classList.add('hide');
 });
 
-btnEmailCancel.addEventListener('click', function (event) {
+btnEmailCancel.addEventListener('click', function () {
     email.classList.remove('hide');
     modifyEmail.classList.remove('hide');
     modifyUpdateCancel.classList.add('hide');
@@ -127,4 +127,34 @@ btnModifyPassword.addEventListener('click', function (event) {
     password.classList.add('hide');
     modifyPassword.classList.add('hide');
     modifyUpdateCancelPassword.classList.remove('hide');
+});
+
+btnPasswordCancel.addEventListener('click', function () {
+    password.classList.remove('hide');
+    modifyPassword.classList.remove('hide');
+    modifyUpdateCancelPassword.classList.add('hide');
+});
+
+btnPasswordUpdate.addEventListener('click', function (event) {
+    // assign the new password to the current Student logged in
+    currentStudentLogged.password = passwordInput.value;
+
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(currentStudentLogged),
+    };
+
+    console.log(options);
+
+    fetch(`http://localhost:8080/students/updatePassword`, options)
+        .then((res) => res.json())
+        .then((data) => studentDetailsUI(data));
+
+    password.classList.remove('hide');
+    modifyPassword.classList.remove('hide');
+    modifyUpdateCancelPassword.classList.add('hide');
 });

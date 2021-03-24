@@ -10,18 +10,47 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+.container {
+    width: 1140px;
+    margin: 0 auto;
+    /* font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
 }
 
+/*
+****************
+    header
+****************    
+*/
 .header {
     margin: 1rem;
     text-align: center;
 }
 
 .header-title {
-    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
     font-size: 4rem;
 }
 
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+button {
+    font-size: 0.9rem;
+}
+
+/*
+****************
+    student
+****************    
+*/
 .student {
     display: flex;
     /* border: 2px solid red; */
@@ -30,7 +59,7 @@
 }
 
 .student-data {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: blue;
     margin-right: 10px;
 }
@@ -43,7 +72,63 @@
     border-radius: 20px;
 }
 
+.btn-modify {
+    width: 5rem;
+    margin-right: 0.5rem;
+    color: var(--mainBlue);
+    background-color: var(--mainGreen);
+    font-size: 0.8rem;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+}
+
+.btn-modify:hover {
+    background-color: var(--mainGrey);
+    cursor: pointer;
+}
+.btn-logout {
+    width: 4rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    border-color: rgb(37, 67, 240);
+    border-width: 1px;
+    outline: none;
+    color: rgb(37, 67, 240);
+    background-color: white;
+    cursor: pointer;
+}
+.btn-logout:hover {
+    width: 4rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    outline: none;
+    background-color: rgb(37, 67, 240);
+    color: white;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+#email-input,
+#password-input {
+    margin-right: 0.5rem;
+    color: blue;
+    text-align: center;
+}
+
+/*
+********************************
+    Courses Table
+********************************
+*/
+
 .course-table {
+    border-collapse: collapse;
     width: 100%;
     border: 2px solid green;
 }
@@ -65,30 +150,4 @@ tr {
 
 .table-date-width {
     width: 15%;
-}
-
-.btn-modify {
-    width: 5rem;
-    margin-right: 0.5rem;
-    color: var(--mainBlue);
-    background-color: var(--mainGreen);
-    font-size: 0.7rem;
-    border-radius: 50px;
-    outline: none !important;
-    border: none;
-}
-
-.btn-modify:hover {
-    background-color: var(--mainGrey);
-}
-
-.btn-primary {
-    width: 4rem;
-    padding: 0.3rem !important;
-    font-size: 0.7rem !important;
-    border-radius: 50px !important;
-}
-
-.hide {
-    display: none;
 }

@@ -25,7 +25,7 @@ public class CoursesController {
 
 		Student student = studentFacade.getStudentByStudentIdentification(request.getUserPrincipal().getName());
 		response.addHeader("studentID", student.getStudentIdent());
-//		LOGGER.info(student.getFirstName() + " " + student.getLastName());
+		LOGGER.info(student.getFirstName() + " " + student.getLastName() + " --> is logged in the ");
 		return "courses.html";
 	}
 }
