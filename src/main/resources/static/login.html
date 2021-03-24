@@ -40,6 +40,11 @@
             </div>
         </div>
         <script>
+            /*
+            if CSRF is enable then :
+            1. the backend sends csrf inside a cookie
+            2. I add the csrf token to the hidden input tag
+            
             var ck = document.cookie;
             var splitCookie = ck.split('=');
             console.log(ck);
@@ -49,7 +54,7 @@
             window.addEventListener('load', () => {
                 csrfAdd.innerHTML = `<input type="hidden" name="_csrf" value="${splitCookie[1]}">`;
             });
-
+            */
             if (window.location.search != '' && window.location.search != '?') {
                 document.getElementById('err').innerHTML = `
     		<div class="alert alert-danger">שם משתמש / סיסמא שגויים</div>

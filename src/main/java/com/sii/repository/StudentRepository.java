@@ -13,12 +13,13 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	Student findByStudentIdent(String studentIdent);
 
-	@Query("SELECT course FROM Student student JOIN student.studentCourse AS course WHERE student.studentIdent=:id") 
+	@Query("SELECT course FROM Student student JOIN student.studentCourse AS course WHERE student.studentIdent=:id")
 	Set<StudentCourse> getAllCoursesForStudentIdent(@Param("id") String studentIdent);
-	
-//	 @Query("SELECT post FROM User user JOIN user.posts AS post WHERE user.id=:id") 
-//	 List<Post> queryOfGetAllPostsByUserId(@Param("id") int id);
-	
+
+	@Query("SELECT st FROM Student st WHERE st.firstName=:firstName AND st.lastName=:lastName AND st.studentIdent=:studentIdent")
+	Student getStudentByFirstnameAndLastnameAndStudentIdentification(@Param("firstName") String firstName,
+			@Param("lastName") String lastName, @Param("studentIdent") String studentIdent);
+
 }
 
 //@Query("SELECT u FROM User u")
@@ -42,8 +43,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
  * 
  */
 /**
- * @Query("SELECT post FROM User user JOIN user.posts AS post WHERE user.id=:id") 
- * List<Post> queryOfGetAllPostsByUserId(@Param("id") int id);
+ * @Query("SELECT post FROM User user JOIN user.posts AS post WHERE
+ * user.id=:id") List<Post> queryOfGetAllPostsByUserId(@Param("id") int id);
  * 
  * @Query("SELECT post FROM User user JOIN user.posts AS post WHERE
  * user.firstname=:firstname") List<Post>
@@ -56,13 +57,14 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
  */
 
 /**
- * @Query("SELECT user FROM User user JOIN user.posts AS post WHERE post.details LIKE %?1%") 
- * List<User> findUserThatContainsInPostDetails(String details);
+ * @Query("SELECT user FROM User user JOIN user.posts AS post WHERE post.details
+ * LIKE %?1%") List<User> findUserThatContainsInPostDetails(String details);
  */
 
 /**
- * @Query("SELECT user FROM User user JOIN user.posts AS post WHERE post.details LIKE %:details%")
- * List<User> queryByUserThatContainsInPostDetails(@Param("details") String details);
+ * @Query("SELECT user FROM User user JOIN user.posts AS post WHERE post.details
+ * LIKE %:details%") List<User>
+ * queryByUserThatContainsInPostDetails(@Param("details") String details);
  */
 
 /**

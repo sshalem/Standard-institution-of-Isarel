@@ -5,7 +5,7 @@ public class StudentDto {
 	private String firstName;
 	private String lastName;
 	private String studentIdentity;
-	private String encryptedPassword;
+	private String password;
 	private String email;
 
 	public StudentDto() {
@@ -17,7 +17,7 @@ public class StudentDto {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.studentIdentity = studentIdentity;
-		this.encryptedPassword = "*****";
+		this.password = "*****";
 		this.email = email;
 	}
 
@@ -53,8 +53,14 @@ public class StudentDto {
 		this.email = email;
 	}
 
-	public String getEncryptedPassword() {
-		return encryptedPassword;
+	public String getPassword() {
+		return password;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentDto [firstName=" + firstName + ", lastName=" + lastName + ", studentIdentity=" + studentIdentity
+				+ ", password=" + password + ", email=" + email + "]";
 	}
 
 }

@@ -2,33 +2,27 @@ const studentInfo = document.getElementById('studentInfo');
 const getStudentData = document.getElementById('getStudentData');
 const courseData = document.getElementById('table-data');
 const studentData = document.querySelector('.student');
-const email = document.querySelector('.email');
 
+// targeting on button of email modification
 const modifyEmail = document.getElementById('modifyEmail');
 const btnModifyEmail = document.querySelector('.btn-modify-email');
-
+const email = document.querySelector('.email');
+const emailInput = document.getElementById('email-input');
 const modifyUpdateCancel = document.getElementById('modifyUpdateCancel');
-const btnModifyUpdate = document.querySelector('.btn-modify-update');
-const btnModifyCancel = document.querySelector('.btn-modify-cancel');
+const btnEmailUpdate = document.querySelector('.btn-modify-update');
+const btnEmailCancel = document.querySelector('.btn-modify-cancel');
 
+// targeting on button password modification
+const modifyPassword = document.getElementById('modifyPassword');
 const btnModifyPassword = document.querySelector('.btn-modify-password');
+const password = document.querySelector('.password');
+const passwordInput = document.getElementById('password-input');
+const modifyUpdateCancelPassword = document.getElementById('modifyUpdateCancelPassword');
+const btnPasswordUpdate = document.querySelector('.btn-modify-update-password');
+const btnPasswordCancel = document.querySelector('.btn-modify-cancel-password');
 
 let studentIdentity = null;
-
-btnModifyEmail.addEventListener('click', function (event) {
-    modifyEmail.classList.add('hide');
-    modifyUpdateCancel.classList.remove('hide');
-});
-
-btnModifyUpdate.addEventListener('click', function (event) {
-    modifyUpdateCancel.classList.add('hide');
-    modifyEmail.classList.remove('hide');
-});
-
-btnModifyCancel.addEventListener('click', function (event) {
-    modifyUpdateCancel.classList.add('hide');
-    modifyEmail.classList.remove('hide');
-});
+let currentStudentLogged = null;
 
 fetch(location).then((res) => {
     for (let header of res.headers.entries()) {
@@ -40,7 +34,7 @@ fetch(location).then((res) => {
             // and display Student details on page
             fetch(`http://localhost:8080/students/get/${studentIdentity}`)
                 .then((res) => res.json())
-                .then((data) => presentStudentDetailsUI(data));
+                .then((data) => studentDetailsUI(data));
 
             /* Http Get Request for geting all the courses a Student:
              * 1. took in the past.
@@ -49,21 +43,23 @@ fetch(location).then((res) => {
              */
             fetch(`http://localhost:8080/studentcourse/all/${studentIdentity}`)
                 .then((res) => res.json())
-                .then((data) => presentStudentCoursesUI(data));
+                .then((data) => studentCoursesUI(data));
         }
     }
 });
 
-function presentStudentDetailsUI(data) {
-    console.log(data);
-    document.querySelector('.identification').lastChild.innerText = data.studentIdentity;
-    document.querySelector('.firstName').lastChild.innerText = data.firstName;
-    document.querySelector('.lastName').lastChild.innerText = data.lastName;
-    document.querySelector('.email').childNodes[1].innerText = data.email;
-    document.querySelector('.password').childNodes[1].innerText = data.encryptedPassword;
+function studentDetailsUI(studentDetails) {
+    currentStudentLogged = studentDetails;
+    const { firstName, lastName, studentIdentity, password, email } = studentDetails;
+    document.querySelector('.identification').innerText = studentIdentity;
+    document.querySelector('.firstName').innerText = firstName;
+    document.querySelector('.lastName').innerText = lastName;
+    document.querySelector('.email').innerText = email;
+    document.getElementById('email-input').value = email;
+    document.querySelector('.password').innerText = password;
 }
 
-function presentStudentCoursesUI(data) {
+function studentCoursesUI(data) {
     let coursesTable = document.getElementById('present-courses-table');
     data.forEach((studentCourse) => {
         const { courseNumber, courseName, grade, startDate, endDate, registrationDate } = studentCourse;
@@ -78,3 +74,57 @@ function presentStudentCoursesUI(data) {
         </tr>`;
     });
 }
+
+/* 
+------------------------------------------
+eventListeners for buttons of :
+ 1. mail <Modification></Modification>
+ -----------------------------------------
+ */
+btnModifyEmail.addEventListener('click', function (event) {
+    email.classList.add('hide');
+    modifyEmail.classList.add('hide');
+    modifyUpdateCancel.classList.remove('hide');
+});
+
+btnEmailUpdate.addEventListener('click', function (event) {
+    currentStudentLogged.email = emailInput.value;
+
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(currentStudentLogged),
+    };
+
+    console.log(options);
+
+    fetch(`http://localhost:8080/students/update`, options)
+        .then((res) => res.json())
+        .then((data) => studentDetailsUI(data));
+
+    email.classList.remove('hide');
+    modifyEmail.classList.remove('hide');
+    modifyUpdateCancel.classList.add('hide');
+});
+
+btnEmailCancel.addEventListener('click', function (event) {
+    email.classList.remove('hide');
+    modifyEmail.classList.remove('hide');
+    modifyUpdateCancel.classList.add('hide');
+});
+
+/* 
+------------------------------------------
+eventListeners for buttons of :
+ 1. mail <Modification></Modification>
+ -----------------------------------------
+ */
+
+btnModifyPassword.addEventListener('click', function (event) {
+    password.classList.add('hide');
+    modifyPassword.classList.add('hide');
+    modifyUpdateCancelPassword.classList.remove('hide');
+});

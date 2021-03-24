@@ -60,19 +60,19 @@ public class DataBaseInitializer implements CommandLineRunner {
 		studentDaoImpl.createStudent(itamar);
 		
 		String gabiPassword = passwordEncoder.encode("gabi");
-		Student gabi = new Student("גבי", "ברק", "5555", gabiPassword, "odel.shalem@gmail.com");
+		Student gabi = new Student("גבי", "ברק", "5555", gabiPassword, "gabi.barak@gmail.com");
 		studentDaoImpl.createStudent(gabi);
 
 		String daniPassword = passwordEncoder.encode("dani");
-		Student dani = new Student("דני", "ברק", "6666", daniPassword, "avigail.shalem@gmail.com");
+		Student dani = new Student("דני", "ברק", "6666", daniPassword, "dani.barak@gmail.com");
 		studentDaoImpl.createStudent(dani);
 
 		String rafiPassword = passwordEncoder.encode("rafi");
-		Student rafi = new Student("רפי", "שלם", "7777", rafiPassword, "ariel.shalem@gmail.com");
+		Student rafi = new Student("רפי", "שלם", "7777", rafiPassword, "rafi.shalem@gmail.com");
 		studentDaoImpl.createStudent(rafi);
 
 		String eranPassword = passwordEncoder.encode("eran");
-		Student eran = new Student("ערן", "כהן", "8888", eranPassword, "itamar.shalem@gmail.com");
+		Student eran = new Student("ערן", "כהן", "8888", eranPassword, "eran.cohen@gmail.com");
 		studentDaoImpl.createStudent(eran);
 	}
 

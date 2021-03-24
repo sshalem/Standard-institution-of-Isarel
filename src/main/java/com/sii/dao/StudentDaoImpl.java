@@ -37,4 +37,11 @@ public class StudentDaoImpl implements StudentDao {
 		return studentRepo.findByStudentIdent(identificationNumber);
 	}
 
+	@Override
+	public Student findByStudentFirstnameAndLastnameAndStudentIdentity(String firstName, String lastName,
+			String identificationNumber) {
+		return studentRepo.getStudentByFirstnameAndLastnameAndStudentIdentification(firstName, lastName,
+				identificationNumber);
+	}
+
 }
