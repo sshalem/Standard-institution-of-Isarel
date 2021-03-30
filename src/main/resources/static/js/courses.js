@@ -4,22 +4,7 @@ const courseData = document.getElementById('table-data');
 const studentData = document.querySelector('.student');
 
 // targeting on button of email modification
-const modifyEmail = document.getElementById('modifyEmail');
-const btnModifyEmail = document.querySelector('.btn-modify-email');
-const email = document.querySelector('.email');
-const emailInput = document.getElementById('email-input');
-const modifyUpdateCancel = document.getElementById('modifyUpdateCancel');
-const btnEmailUpdate = document.querySelector('.btn-modify-update');
-const btnEmailCancel = document.querySelector('.btn-modify-cancel');
-
-// targeting on button password modification
-const modifyPassword = document.getElementById('modifyPassword');
-const btnModifyPassword = document.querySelector('.btn-modify-password');
-const password = document.querySelector('.password');
-const passwordInput = document.getElementById('password-input');
-const modifyUpdateCancelPassword = document.getElementById('modifyUpdateCancelPassword');
-const btnPasswordUpdate = document.querySelector('.btn-modify-update-password');
-const btnPasswordCancel = document.querySelector('.btn-modify-cancel-password');
+const update = document.querySelector('.update');
 
 let studentIdentity = null;
 let currentStudentLogged = null;
@@ -55,7 +40,6 @@ function studentDetailsUI(studentDetails) {
     document.querySelector('.firstName').innerText = firstName;
     document.querySelector('.lastName').innerText = lastName;
     document.querySelector('.email').innerText = email;
-    document.getElementById('email-input').value = email;
     document.querySelector('.password').innerText = password;
 }
 
@@ -75,86 +59,4 @@ function studentCoursesUI(data) {
     });
 }
 
-/* 
-------------------------------------------
-eventListeners for buttons of :
- 1. mail <Modification></Modification>
- -----------------------------------------
- */
-btnModifyEmail.addEventListener('click', function (event) {
-    email.classList.add('hide');
-    modifyEmail.classList.add('hide');
-    modifyUpdateCancel.classList.remove('hide');
-});
-
-btnEmailUpdate.addEventListener('click', function (event) {
-    currentStudentLogged.email = emailInput.value;
-
-    const options = {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(currentStudentLogged),
-    };
-
-    console.log(options);
-
-    fetch(`http://localhost:8080/students/updateEmail`, options)
-        .then((res) => res.json())
-        .then((data) => studentDetailsUI(data));
-
-    email.classList.remove('hide');
-    modifyEmail.classList.remove('hide');
-    modifyUpdateCancel.classList.add('hide');
-});
-
-btnEmailCancel.addEventListener('click', function () {
-    email.classList.remove('hide');
-    modifyEmail.classList.remove('hide');
-    modifyUpdateCancel.classList.add('hide');
-});
-
-/* 
-------------------------------------------
-eventListeners for buttons of :
- 1. mail <Modification></Modification>
- -----------------------------------------
- */
-
-btnModifyPassword.addEventListener('click', function (event) {
-    password.classList.add('hide');
-    modifyPassword.classList.add('hide');
-    modifyUpdateCancelPassword.classList.remove('hide');
-});
-
-btnPasswordCancel.addEventListener('click', function () {
-    password.classList.remove('hide');
-    modifyPassword.classList.remove('hide');
-    modifyUpdateCancelPassword.classList.add('hide');
-});
-
-btnPasswordUpdate.addEventListener('click', function (event) {
-    // assign the new password to the current Student logged in
-    currentStudentLogged.password = passwordInput.value;
-
-    const options = {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(currentStudentLogged),
-    };
-
-    console.log(options);
-
-    fetch(`http://localhost:8080/students/updatePassword`, options)
-        .then((res) => res.json())
-        .then((data) => studentDetailsUI(data));
-
-    password.classList.remove('hide');
-    modifyPassword.classList.remove('hide');
-    modifyUpdateCancelPassword.classList.add('hide');
-});
+update.addEventListener('click', function () {});

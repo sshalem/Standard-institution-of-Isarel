@@ -18,47 +18,54 @@
                 <h1 class="header-title">רשימת קורסים לסטודנט</h1>
             </header>
             <hr />
-            <section class="student">
-                <div class="student">ת.ז.:<span class="student-data identification"></span></div>
-                <div class="student">פרטי:<span class="student-data firstName"></span></div>
-                <div class="student">משפחה:<span class="student-data lastName"></span></div>
-                <div class="student">
-                    מייל:<span class="student-data email"></span
-                    ><span id="modifyEmail"><button class="btn-modify btn-modify-email">שינוי אימייל</button></span>
-                    <span id="modifyUpdateCancel" class="hide">
-                        <input type="email" name="" id="email-input" />
-                        <button class="btn-modify btn-modify-update">עדכן</button>
-                        <button class="btn-modify btn-modify-cancel">בטל</button>
-                    </span>
-                </div>
-                <div class="student">
-                    סיסמא:<span class="student-data password"></span>
-                    <span id="modifyPassword"><button class="btn-modify btn-modify-password">שינוי סיסמא</button></span>
-                    <span id="modifyUpdateCancelPassword" class="hide">
-                        <input type="password" name="" id="password-input" />
-                        <button class="btn-modify btn-modify-update-password">עדכן</button>
-                        <button class="btn-modify btn-modify-cancel-password">בטל</button>
-                    </span>
-                </div>
-                <div class="student logout">
-                    <form action="http://localhost:8080/logout" method="post">
-                        <button type="submit" class="btn-logout">יציאה</button>
-                    </form>
-                </div>
+            <div class="logout">
+                <form action="http://localhost:8080/logout" method="post">
+                    <button type="submit" class="btn-logout">יציאה</button>
+                </form>
+            </div>
+            <section class="student" id="student-section">
+                <div class="student-field">ת.ז.:<span class="student-data identification"></span></div>
+                <div class="student-field">פרטי:<span class="student-data firstName"></span></div>
+                <div class="student-field">משפחה:<span class="student-data lastName"></span></div>
+                <div class="student-field">מייל:<span class="student-data email"></span></div>
+                <div class="student-field">סיסמא:<span class="student-data password"></span></div>
+                <!-- <div class="student student-field"><span class="student-data update">עדכון נתונים</span></div> -->
+                <div class="update">עדכון נתונים</div>
             </section>
-            <!-- content divider -->
+            <!-- Section Student Update Start -->
+            <section class="section_student__update hide">
+                <div class="section_student__details">
+                    <label for="fName">פרטי:</label>
+                    <input type="text" name="" id="fName" />
+                </div>
+                <div class="section_student__details">
+                    <label for="lName">משפחה:</label>
+                    <input type="text" name="" id="lName" />
+                </div>
+                <div class="section_student__details">
+                    <label for="eMail">אי-מייל:</label>
+                    <input type="text" name="" id="eMail" />
+                </div>
+                <div class="section_student__details">
+                    <label for="pwd">סיסמא:</label>
+                    <input type="text" name="" id="pwd" />
+                </div>
+                <div class="update-button">עדכן</div>
+            </section>
+            <!-- Section Student Update End -->
+            <!-- content divider start-->
             <div class="section-seperator"></div>
-            <!-- end content divider -->
+            <!-- content divider end -->
             <section class="course">
                 <table class="course-table">
                     <thead>
                         <tr>
-                            <th class="">מספר קורס</th>
+                            <th class="table-course-number">מספר קורס</th>
                             <th class="">שם קורס</th>
-                            <th class="">ציון סופי</th>
-                            <th class="table-date-width">תאריך התחלה</th>
-                            <th class="table-date-width">תאריך סיום</th>
-                            <th class="table-date-width">תאריך רישום</th>
+                            <th class="table-course-grade">ציון סופי</th>
+                            <th class="table-date">תאריך התחלה</th>
+                            <th class="table-date">תאריך סיום</th>
+                            <th class="table-date">תאריך רישום</th>
                         </tr>
                     </thead>
                     <tbody id="present-courses-table"></tbody>
