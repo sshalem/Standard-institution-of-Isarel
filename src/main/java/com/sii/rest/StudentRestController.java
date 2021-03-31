@@ -34,23 +34,19 @@ public class StudentRestController {
 
 		LOGGER.info("return Student details to UI");
 //		LOGGER.info("facade: " + studentFacade.hashCode());
-//		LOGGER.info("context: " + ctx.getBean(StudentFacade.class).hashCode());
+//		LOGGER.info("context: " + ctx.getBean(StudentFacade.class).hashCode()); 
 
 		Student student = studentFacade.getStudentByStudentIdentification(identity);
-		StudentDto studentDto = new StudentDto(student.getFirstName(), student.getLastName(), student.getStudentIdent(),
+		StudentDto studentDto = new StudentDto(student.getStudentIdent(), student.getFirstName(), student.getLastName(),
 				student.getEmail());
 		LOGGER.info(" ---> " + studentDto);
 		return studentDto;
 	}
- 
-	@PostMapping(path = "/updateEmail", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public StudentDto updateStudentEmail(@RequestBody StudentDto studentDto) {
-		return studentFacade.updateStudentEmail(studentDto);
+
+	@PostMapping(path = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public StudentDto updateStudentPersonalDetails(@RequestBody StudentDto studentDto) {
+		LOGGER.info(" update --> " + studentDto);
+		return studentFacade.updateStudentDetails(studentDto);
 	}
 
-	@PostMapping(path = "/updatePassword", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public StudentDto updateStudentPassword(@RequestBody StudentDto studentDto) {
-		return studentFacade.updateStudentPassword(studentDto);
-	}
-	
 }

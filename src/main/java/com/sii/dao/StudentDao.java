@@ -14,7 +14,4 @@ public interface StudentDao {
 
 	Student findByStudentIdentificationNumebr(String identificationNumber);
 
-	Student findByStudentFirstnameAndLastnameAndStudentIdentity(String firstName, String lastName,
-			String identificationNumber);
-
 }

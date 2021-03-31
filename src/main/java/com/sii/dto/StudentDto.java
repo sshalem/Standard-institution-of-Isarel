@@ -2,23 +2,31 @@ package com.sii.dto;
 
 public class StudentDto {
 
+	private String studentIdentity;
 	private String firstName;
 	private String lastName;
-	private String studentIdentity;
-	private String password;
 	private String email;
+	private String password;
 
 	public StudentDto() {
 		super();
 	}
 
-	public StudentDto(String firstName, String lastName, String studentIdentity, String email) {
+	public StudentDto(String studentIdentity, String firstName, String lastName, String email) {
 		super();
+		this.studentIdentity = studentIdentity;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.studentIdentity = studentIdentity;
-		this.password = "*****";
 		this.email = email;
+		this.password = "*****";
+	}
+
+	public String getStudentIdentity() {
+		return studentIdentity;
+	}
+
+	public void setStudentIdentity(String studentIdentity) {
+		this.studentIdentity = studentIdentity;
 	}
 
 	public String getFirstName() {
@@ -37,14 +45,6 @@ public class StudentDto {
 		this.lastName = lastName;
 	}
 
-	public String getStudentIdentity() {
-		return studentIdentity;
-	}
-
-	public void setStudentIdentity(String studentIdentity) {
-		this.studentIdentity = studentIdentity;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -57,10 +57,14 @@ public class StudentDto {
 		return password;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
-		return "StudentDto [firstName=" + firstName + ", lastName=" + lastName + ", studentIdentity=" + studentIdentity
-				+ ", password=" + password + ", email=" + email + "]";
+		return "StudentDto [studentIdentity=" + studentIdentity + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", password=" + password + "]";
 	}
 
 }

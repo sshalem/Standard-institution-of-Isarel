@@ -23,25 +23,18 @@ public class StudentFacade {
 		return studentDaoImpl.findByStudentIdentificationNumebr(identificationNumber);
 	}
 
-	public StudentDto updateStudentEmail(StudentDto studentDto) {
-		
-		Student student = studentDaoImpl.findByStudentFirstnameAndLastnameAndStudentIdentity(studentDto.getFirstName(),
-				studentDto.getLastName(), studentDto.getStudentIdentity());
-		student.setEmail(studentDto.getEmail());
-		studentDaoImpl.updateStudent(student);
-		StudentDto updatedStudentDto = new StudentDto(student.getFirstName(), student.getLastName(),
-				student.getStudentIdent(), student.getEmail());
-		return updatedStudentDto;
-	}
+	public StudentDto updateStudentDetails(StudentDto studentDto) {
 
-	public StudentDto updateStudentPassword(StudentDto studentDto) {
-		
-		Student student = studentDaoImpl.findByStudentIdentificationNumebr(studentDto.getStudentIdentity());		
-		String encode = passwordEncoder.encode(studentDto.getPassword());
-		student.setEncryptedPassword(encode);
-		studentDaoImpl.updateStudent(student);		
-		StudentDto updateStudentDto = new StudentDto(student.getFirstName(), student.getLastName(),
-				student.getStudentIdent(), student.getEmail());
+		Student student = studentDaoImpl.findByStudentIdentificationNumebr(studentDto.getStudentIdentity());
+
+		student.setFirstName(studentDto.getFirstName());
+		student.setLastName(studentDto.getLastName());
+		student.setEmail(studentDto.getEmail());
+		student.setEncryptedPassword(passwordEncoder.encode(studentDto.getPassword()));
+
+		studentDaoImpl.updateStudent(student);
+		StudentDto updateStudentDto = new StudentDto(student.getStudentIdent(), student.getFirstName(),
+				student.getLastName(), student.getEmail());
 		return updateStudentDto;
 	}
 

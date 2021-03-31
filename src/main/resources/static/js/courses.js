@@ -12,11 +12,12 @@ let pwd = document.getElementById('pwd');
 
 let studentIdentity = null;
 let currentStudentLogged = null;
+let student = null;
 
 fetch(location).then((res) => {
     for (let header of res.headers.entries()) {
         if (header[0] === 'studentid') {
-            console.log(header[1]);
+            // console.log(header[1]);
             studentIdentity = header[1];
             getPersonalInfofLoggedinStudent(studentIdentity);
             getCoursesOfLoggedinStudent(studentIdentity);
@@ -35,20 +36,22 @@ cancelBtn.addEventListener('click', function () {
 });
 
 updateBtn.addEventListener('click', function () {
+    updateStudentDetails();
     studentData.classList.remove('hide');
     studentUpdate.classList.add('hide');
 });
 
 function studentDetailsUI(studentDetails) {
-    currentStudentLogged = studentDetails;
-    const { firstName, lastName, studentIdentity, password, email } = studentDetails;
+    // currentStudentLogged = studentDetails;
+    const { studentIdentity, firstName, lastName, email, password } = studentDetails;
     document.querySelector('.identification').innerText = studentIdentity;
     document.querySelector('.firstName').innerText = firstName;
     document.querySelector('.lastName').innerText = lastName;
     document.querySelector('.email').innerText = email;
     document.querySelector('.password').innerText = password;
 
-    // update input tags of section_student__update
+    // assign to the input tags of "section_student__update"
+    // the values student details before they are modified
     fName.value = firstName;
     lName.value = lastName;
     eMail.value = email;
@@ -88,4 +91,42 @@ function getCoursesOfLoggedinStudent(studentIdentity) {
     fetch(`http://localhost:8080/studentcourse/all/${studentIdentity}`)
         .then((res) => res.json())
         .then((data) => studentCoursesUI(data));
+}
+
+function updateStudentDetails() {
+    /* Http Post to update student details
+     * I receive back from server , the update Student details
+     * and show them on page
+     */
+
+    // read the new student details from input tags
+    const firstName = fName.value;
+    const lastName = lName.value;
+    const email = eMail.value;
+    const password = pwd.value;
+
+    student = new Student(studentIdentity, firstName, lastName, email, password);
+
+    const options = {
+        method: 'post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(student),
+    };
+
+    fetch(`http://localhost:8080/students/update/`, options)
+        .then((res) => res.json())
+        .then((data) => studentDetailsUI(data));
+}
+
+class Student {
+    constructor(studentIdentity, firstName, lastName, email, password) {
+        this.studentIdentity = studentIdentity;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 }

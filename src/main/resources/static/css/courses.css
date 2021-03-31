@@ -112,11 +112,10 @@ button {
     padding: 0.3rem;
     font-size: 0.9rem;
     border-radius: 50px;
-    border-color: rgb(37, 67, 240);
-    border-width: 1px;
+    border: 1px solid rgb(37, 67, 240);
     outline: none;
-    color: rgb(37, 67, 240);
-    background-color: white;
+    color: white;
+    background-color: rgb(37, 67, 240);
     cursor: pointer;
 }
 .btn-logout:hover {
@@ -125,8 +124,8 @@ button {
     font-size: 0.9rem;
     border-radius: 50px;
     outline: none;
-    background-color: rgb(37, 67, 240);
-    color: white;
+    color: rgb(37, 67, 240);
+    background-color: white;
     cursor: pointer;
 }
 
@@ -168,12 +167,13 @@ input:focus {
     padding: 0.1rem 2rem;
     border: 1px solid green;
     border-radius: 20px;
-    color: green;
+    color: white;
+    background-color: green;
     cursor: pointer;
 }
 .update-button:hover {
-    color: white;
-    background-color: green;
+    color: green;
+    background-color: white;
 }
 
 .cancel-button {
@@ -181,12 +181,13 @@ input:focus {
     padding: 0.1rem 2rem;
     border: 1px solid red;
     border-radius: 20px;
-    color: red;
+    color: white;
+    background-color: red;
     cursor: pointer;
 }
 .cancel-button:hover {
-    color: white;
-    background-color: red;
+    color: red;
+    background-color: white;
 }
 .hide {
     display: none;
@@ -545,11 +546,10 @@ td {
         padding: 0.3rem;
         font-size: 0.9rem;
         border-radius: 50px;
-        border-color: rgb(37, 67, 240);
-        border-width: 1px;
+        border: 1px solid rgb(37, 67, 240);
         outline: none;
-        color: rgb(37, 67, 240);
-        background-color: white;
+        color: white;
+        background-color: rgb(37, 67, 240);
         cursor: pointer;
     }
     .btn-logout:hover {
@@ -558,8 +558,8 @@ td {
         font-size: 0.9rem;
         border-radius: 50px;
         outline: none;
-        background-color: rgb(37, 67, 240);
-        color: white;
+        color: rgb(37, 67, 240);
+        background-color: white;
         cursor: pointer;
     }
 
@@ -697,11 +697,10 @@ td {
         padding: 0.3rem;
         font-size: 0.9rem;
         border-radius: 50px;
-        border-color: rgb(37, 67, 240);
-        border-width: 1px;
+        border: 1px solid rgb(37, 67, 240);
         outline: none;
-        color: rgb(37, 67, 240);
-        background-color: white;
+        color: white;
+        background-color: rgb(37, 67, 240);
         cursor: pointer;
     }
     .btn-logout:hover {
@@ -710,8 +709,8 @@ td {
         font-size: 0.9rem;
         border-radius: 50px;
         outline: none;
-        background-color: rgb(37, 67, 240);
-        color: white;
+        color: rgb(37, 67, 240);
+        background-color: white;
         cursor: pointer;
     }
 
