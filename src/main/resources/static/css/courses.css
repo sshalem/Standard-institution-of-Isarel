@@ -151,20 +151,43 @@ label {
     text-align: right;
 }
 input {
+    display: inline-block;
     width: 20rem;
+    color: blue;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.35rem;
+    border: 1px solid #ced4da;
+    outline: none;
 }
+
+input:focus {
+    border: 2px solid var(--mainGrey);
+}
+
 .update-button {
+    padding: 0.1rem 2rem;
+    border: 1px solid green;
+    border-radius: 20px;
+    color: green;
+    cursor: pointer;
+}
+.update-button:hover {
+    color: white;
+    background-color: green;
+}
+
+.cancel-button {
+    margin-top: 1rem;
     padding: 0.1rem 2rem;
     border: 1px solid red;
     border-radius: 20px;
     color: red;
     cursor: pointer;
 }
-.update-button:hover {
+.cancel-button:hover {
     color: white;
     background-color: red;
 }
-
 .hide {
     display: none;
 }

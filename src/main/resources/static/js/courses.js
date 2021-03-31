@@ -1,10 +1,14 @@
-const studentInfo = document.getElementById('studentInfo');
-const getStudentData = document.getElementById('getStudentData');
-const courseData = document.getElementById('table-data');
 const studentData = document.querySelector('.student');
-
-// targeting on button of email modification
+const studentUpdate = document.querySelector('.section_student__update');
 const update = document.querySelector('.update');
+const updateBtn = document.querySelector('.update-button');
+const cancelBtn = document.querySelector('.cancel-button');
+
+// targeting input tags
+let fName = document.getElementById('fName');
+let lName = document.getElementById('lName');
+let eMail = document.getElementById('eMail');
+let pwd = document.getElementById('pwd');
 
 let studentIdentity = null;
 let currentStudentLogged = null;
@@ -14,23 +18,25 @@ fetch(location).then((res) => {
         if (header[0] === 'studentid') {
             console.log(header[1]);
             studentIdentity = header[1];
-
-            // Http Get Request for getting Student who is logged in
-            // and display Student details on page
-            fetch(`http://localhost:8080/students/get/${studentIdentity}`)
-                .then((res) => res.json())
-                .then((data) => studentDetailsUI(data));
-
-            /* Http Get Request for geting all the courses a Student:
-             * 1. took in the past.
-             * 2. assigned too (but hasn't registered yet)
-             * 3. registered or has cancled registration
-             */
-            fetch(`http://localhost:8080/studentcourse/all/${studentIdentity}`)
-                .then((res) => res.json())
-                .then((data) => studentCoursesUI(data));
+            getPersonalInfofLoggedinStudent(studentIdentity);
+            getCoursesOfLoggedinStudent(studentIdentity);
         }
     }
+});
+
+update.addEventListener('click', function () {
+    studentData.classList.add('hide');
+    studentUpdate.classList.remove('hide');
+});
+
+cancelBtn.addEventListener('click', function () {
+    studentData.classList.remove('hide');
+    studentUpdate.classList.add('hide');
+});
+
+updateBtn.addEventListener('click', function () {
+    studentData.classList.remove('hide');
+    studentUpdate.classList.add('hide');
 });
 
 function studentDetailsUI(studentDetails) {
@@ -41,10 +47,16 @@ function studentDetailsUI(studentDetails) {
     document.querySelector('.lastName').innerText = lastName;
     document.querySelector('.email').innerText = email;
     document.querySelector('.password').innerText = password;
+
+    // update input tags of section_student__update
+    fName.value = firstName;
+    lName.value = lastName;
+    eMail.value = email;
+    pwd.value = password;
 }
 
 function studentCoursesUI(data) {
-    let coursesTable = document.getElementById('present-courses-table');
+    let coursesTable = document.getElementById('show-courses-table');
     data.forEach((studentCourse) => {
         const { courseNumber, courseName, grade, startDate, endDate, registrationDate } = studentCourse;
         coursesTable.innerHTML += `
@@ -59,4 +71,21 @@ function studentCoursesUI(data) {
     });
 }
 
-update.addEventListener('click', function () {});
+function getPersonalInfofLoggedinStudent(studentIdentity) {
+    // Http Get Request for getting Student who is logged in
+    // and display Student details on page
+    fetch(`http://localhost:8080/students/get/${studentIdentity}`)
+        .then((res) => res.json())
+        .then((data) => studentDetailsUI(data));
+}
+
+function getCoursesOfLoggedinStudent(studentIdentity) {
+    /* Http Get Request for geting all the courses a Student:
+     * 1. took in the past.
+     * 2. assigned too (but hasn't registered yet)
+     * 3. registered or has cancled registration
+     */
+    fetch(`http://localhost:8080/studentcourse/all/${studentIdentity}`)
+        .then((res) => res.json())
+        .then((data) => studentCoursesUI(data));
+}
