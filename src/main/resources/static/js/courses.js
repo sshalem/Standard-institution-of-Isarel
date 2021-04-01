@@ -61,7 +61,7 @@ function studentDetailsUI(studentDetails) {
 function studentCoursesUI(data) {
     let coursesTable = document.getElementById('show-courses-table');
     data.forEach((studentCourse) => {
-        const { courseNumber, courseName, grade, startDate, endDate, registrationDate } = studentCourse;
+        const { courseNumber, courseName, grade, startDate, endDate, registration } = studentCourse;
         coursesTable.innerHTML += `
         <tr>
             <td>${courseNumber}</td>
@@ -69,7 +69,7 @@ function studentCoursesUI(data) {
             <td>${grade}</td>
             <td>${startDate}</td>
             <td>${endDate}</td>
-            <td>${registrationDate}</td>
+            <td>${registration}</td>
         </tr>`;
     });
 }

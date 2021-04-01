@@ -2,6 +2,8 @@ package com.sii.dto;
 
 import java.time.LocalDate;
 
+import com.sii.common.Registration;
+
 public class StudentCourseDto {
 
 	private int courseNumber;
@@ -9,7 +11,7 @@ public class StudentCourseDto {
 	private int grade;
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private LocalDate registrationDate;
+	private Registration registration;
 
 	public StudentCourseDto() {
 		super();
@@ -55,18 +57,18 @@ public class StudentCourseDto {
 		this.endDate = endDate;
 	}
 
-	public LocalDate getRegistrationDate() {
-		return registrationDate;
+	public Registration getRegistration() {
+		return registration;
 	}
 
-	public void setRegistrationDate(LocalDate registrationDate) {
-		this.registrationDate = registrationDate;
+	public void setRegistration(Registration registration) {
+		this.registration = registration;
 	}
 
 	@Override
 	public String toString() {
 		return "StudentCourseDto [courseNumber=" + courseNumber + ", courseName=" + courseName + ", grade=" + grade
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", registrationDate=" + registrationDate + "]";
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", registration=" + registration + "]";
 	}
 
 }
