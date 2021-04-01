@@ -71,6 +71,10 @@ button {
     text-align: right;
 }
 
+.student-details__update {
+    margin: 0 auto;
+    text-align: center;
+}
 .section-seperator {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -105,8 +109,8 @@ button {
 }
 .btn-logout {
     width: 4rem;
-    padding: 0.1rem;
-    font-size: 0.8rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
     border-radius: 50px;
     border: 1px solid rgb(37, 67, 240);
     outline: none;
@@ -115,6 +119,9 @@ button {
     cursor: pointer;
 }
 .btn-logout:hover {
+    width: 4rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
     border-radius: 50px;
     outline: none;
     color: rgb(37, 67, 240);
@@ -128,13 +135,13 @@ button {
 .section_student__update {
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
 .section_student__details {
-    font-size: 0.9rem;
     margin-bottom: 0.8rem;
 }
 label {
@@ -157,10 +164,7 @@ input:focus {
 }
 
 .update-button {
-    width: 4rem;
-    padding: 0.1rem;
-    font-size: 0.8rem;
-    text-align: center;
+    padding: 0.1rem 2rem;
     border: 1px solid green;
     border-radius: 20px;
     color: white;
@@ -174,10 +178,7 @@ input:focus {
 
 .cancel-button {
     margin-top: 1rem;
-    width: 4rem;
-    padding: 0.1rem;
-    font-size: 0.8rem;
-    text-align: center;
+    padding: 0.1rem 2rem;
     border: 1px solid red;
     border-radius: 20px;
     color: white;
@@ -236,10 +237,30 @@ td {
 @media screen and (min-width: 576px) {
     .container {
         width: 576px;
+        margin: 0 auto;
+        /* font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
+    }
+    .header {
+        margin: 1rem;
+        text-align: center;
     }
 
     .header-title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
         font-size: 2.2rem;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        font-size: 0.9rem;
     }
 
     /*****************
@@ -256,6 +277,18 @@ td {
         text-align: right;
     }
 
+    .student-details__update {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .section-seperator {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        background-color: burlywood;
+        height: 0.5rem;
+        border-radius: 20px;
+    }
+
     .update {
         width: 7rem;
         margin-right: 0.5rem;
@@ -269,9 +302,19 @@ td {
         border: none;
     }
 
+    .update:hover {
+        background-color: var(--mainGrey);
+        cursor: pointer;
+    }
+
     /*********************************
             Courses Table
     *********************************/
+    .course-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid green;
+    }
 
     thead,
     tbody {
@@ -286,15 +329,46 @@ td {
     tr {
         border: 2px solid green;
     }
+
+    .table-course-number {
+        width: 12%;
+    }
+
+    .table-course-grade {
+        width: 10%;
+    }
+    .table-date {
+        width: 15%;
+    }
 }
 
 @media screen and (min-width: 768px) {
     .container {
         width: 768px;
+        margin: 0 auto;
+        /* font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
+    }
+    .header {
+        margin: 1rem;
+        text-align: center;
     }
 
     .header-title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
         font-size: 2.8rem;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        font-size: 0.9rem;
     }
 
     /*****************
@@ -311,6 +385,18 @@ td {
         text-align: right;
     }
 
+    .student-details__update {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .section-seperator {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        background-color: burlywood;
+        height: 0.5rem;
+        border-radius: 20px;
+    }
+
     .update {
         width: 7rem;
         margin-right: 0.5rem;
@@ -324,9 +410,19 @@ td {
         border: none;
     }
 
+    .update:hover {
+        background-color: var(--mainGrey);
+        cursor: pointer;
+    }
+
     /********************************
         Courses Table
     *********************************/
+    .course-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid green;
+    }
 
     thead,
     tbody {
@@ -344,15 +440,46 @@ td {
     td {
         font-size: 0.85rem;
     }
+
+    .table-course-number {
+        /* width: 12%; */
+    }
+
+    .table-course-grade {
+        /* width: 10%; */
+    }
+    .table-date {
+        width: 15%;
+    }
 }
 
 @media screen and (min-width: 992px) {
     .container {
         width: 992px;
+        margin: 0 auto;
+        /* font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
+    }
+    .header {
+        margin: 1rem;
+        text-align: center;
     }
 
     .header-title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
         font-size: 3.4rem;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        font-size: 0.9rem;
     }
 
     /*****************
@@ -378,6 +505,18 @@ td {
         text-align: right;
     }
 
+    .student-details__update {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .section-seperator {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        background-color: burlywood;
+        height: 0.5rem;
+        border-radius: 20px;
+    }
+
     .update {
         width: 7rem;
         margin-right: 0.5rem;
@@ -391,10 +530,37 @@ td {
         border: none;
     }
 
+    .update:hover {
+        background-color: var(--mainGrey);
+        cursor: pointer;
+    }
+
     .logout {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 1rem;
+    }
+
+    .btn-logout {
+        width: 4rem;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+        border-radius: 50px;
+        border: 1px solid rgb(37, 67, 240);
+        outline: none;
+        color: white;
+        background-color: rgb(37, 67, 240);
+        cursor: pointer;
+    }
+    .btn-logout:hover {
+        width: 4rem;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+        border-radius: 50px;
+        outline: none;
+        color: rgb(37, 67, 240);
+        background-color: white;
+        cursor: pointer;
     }
 
     .hide {
@@ -403,6 +569,11 @@ td {
     /********************************
         Courses Table
     *********************************/
+    .course-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid green;
+    }
 
     thead,
     tbody {
@@ -421,15 +592,45 @@ td {
     td {
         font-size: 1rem;
     }
+    .table-course-number {
+        /* width: 12%; */
+    }
+
+    .table-course-grade {
+        /* width: 10%; */
+    }
+    .table-date {
+        width: 15%;
+    }
 }
 
 @media screen and (min-width: 1140px) {
     .container {
         width: 1140px;
+        margin: 0 auto;
+        /* font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
+    }
+    .header {
+        margin: 1rem;
+        text-align: center;
     }
 
     .header-title {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
         font-size: 4rem;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        font-size: 0.9rem;
     }
 
     /*****************
@@ -455,6 +656,18 @@ td {
         text-align: right;
     }
 
+    .student-details__update {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .section-seperator {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        background-color: burlywood;
+        height: 0.5rem;
+        border-radius: 20px;
+    }
+
     .update {
         width: 7rem;
         margin-right: 0.5rem;
@@ -468,12 +681,50 @@ td {
         border: none;
     }
 
+    .update:hover {
+        background-color: var(--mainGrey);
+        cursor: pointer;
+    }
+
+    .logout {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+    }
+
+    .btn-logout {
+        width: 4rem;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+        border-radius: 50px;
+        border: 1px solid rgb(37, 67, 240);
+        outline: none;
+        color: white;
+        background-color: rgb(37, 67, 240);
+        cursor: pointer;
+    }
+    .btn-logout:hover {
+        width: 4rem;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+        border-radius: 50px;
+        outline: none;
+        color: rgb(37, 67, 240);
+        background-color: white;
+        cursor: pointer;
+    }
+
     .hide {
         display: none;
     }
     /********************************
         Courses Table
     *********************************/
+    .course-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid green;
+    }
 
     thead,
     tbody {
@@ -487,5 +738,16 @@ td {
 
     tr {
         border: 2px solid green;
+    }
+
+    .table-course-number {
+        /* width: 12%; */
+    }
+
+    .table-course-grade {
+        /* width: 10%; */
+    }
+    .table-date {
+        width: 15%;
     }
 }
