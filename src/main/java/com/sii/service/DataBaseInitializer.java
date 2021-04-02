@@ -140,42 +140,49 @@ public class DataBaseInitializer implements CommandLineRunner {
 		int reactCourseNum = 5044;
 		Course react = new Course(reactCourseNum, "react", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseReact = new StudentCourse();
+		studentCourseReact.setCourseNumber(reactCourseNum);
 		react.addStudentCourse(studentCourseReact);
 		courseDaoImpl.createCourse(react);
 
 		int sqlCourseNum = 6077;
 		Course sql = new Course(sqlCourseNum, "sql", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseSql = new StudentCourse();
+		studentCourseSql.setCourseNumber(sqlCourseNum);
 		sql.addStudentCourse(studentCourseSql);
 		courseDaoImpl.createCourse(sql);
 
 		int htmlCourseNum = 7026;
 		Course html = new Course(htmlCourseNum, "html", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseHtml = new StudentCourse();
+		studentCourseHtml.setCourseNumber(htmlCourseNum);
 		html.addStudentCourse(studentCourseHtml);
 		courseDaoImpl.createCourse(html);
 
 		int cssCourseNum = 8091;
 		Course css = new Course(cssCourseNum, "css", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseCss = new StudentCourse();
+		studentCourseCss.setCourseNumber(cssCourseNum);
 		css.addStudentCourse(studentCourseCss);
 		courseDaoImpl.createCourse(css);
 		
 		int historyCourseNum = 9003;
 		Course history = new Course(historyCourseNum, "היסטוריה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCoursehistory = new StudentCourse();
+		studentCoursehistory.setCourseNumber(historyCourseNum);
 		history.addStudentCourse(studentCoursehistory);
 		courseDaoImpl.createCourse(history);
 		
 		int geographyCourseNum = 1565;
 		Course geography = new Course(geographyCourseNum, "גאוגרפיה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseGeography = new StudentCourse();
+		studentCourseGeography.setCourseNumber(geographyCourseNum);
 		geography.addStudentCourse(studentCourseGeography);
 		courseDaoImpl.createCourse(geography);
 		
 		int algebraCourseNum = 2517;
 		Course algebra = new Course(algebraCourseNum, "אלגברה", 2021, LocalDate.now(), LocalDate.of(2021, 6, 1));
 		StudentCourse studentCourseAlgebra = new StudentCourse();
+		studentCourseAlgebra.setCourseNumber(algebraCourseNum);
 		algebra.addStudentCourse(studentCourseAlgebra);
 		courseDaoImpl.createCourse(algebra);
 		
