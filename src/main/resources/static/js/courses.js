@@ -60,8 +60,19 @@ function studentDetailsUI(studentDetails) {
 
 function studentCoursesUI(data) {
     let coursesTable = document.getElementById('show-courses-table');
+
     data.forEach((studentCourse) => {
         const { courseNumber, courseName, grade, startDate, endDate, registration } = studentCourse;
+        let registerStatus = '';
+        let registerButton = false;
+        if (registration === `REGISTERED`) {
+            registerStatus = `בטל רישום`;
+        } else if (registration === `REGISTERED`) {
+            registerStatus = `הרשם`;
+        } else if (registration === `REGISTRATION_EXPIRED`) {
+            registerStatus = `קורס התחיל`;
+        }
+
         coursesTable.innerHTML += `
         <tr>
             <td>${courseNumber}</td>
@@ -69,8 +80,23 @@ function studentCoursesUI(data) {
             <td>${grade}</td>
             <td>${startDate}</td>
             <td>${endDate}</td>
-            <td>${registration}</td>
+            <td><div class="register">${registerStatus}</div></td>
         </tr>`;
+    });
+
+    let register = document.querySelectorAll('.register');
+    register.forEach((course) => {
+        if (course.innerText === `הרשם`) {
+            course.classList.add('register-signin');
+            course, addEventListener('click', function () {});
+        }
+        if (course.innerText === `בטל רישום`) {
+            course.classList.add('register-cancel');
+        }
+        if (course.innerText === `קורס התחיל`) {
+            course.classList.remove('register-cancel');
+            course.classList.remove('register-signin');
+        }
     });
 }
 

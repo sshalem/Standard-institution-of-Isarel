@@ -36,10 +36,11 @@ public class StudentCourse {
 		super();
 	}
 
-	public StudentCourse(String studentIdent, int courseNumber) {
+	public StudentCourse(String studentIdent, int courseNumber, LocalDate registrationDate) {
 		super();
 		this.studentIdent = studentIdent;
 		this.courseNumber = courseNumber;
+		this.registrationDate = registrationDate;
 	}
 
 	public long getId() {

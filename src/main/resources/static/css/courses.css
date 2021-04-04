@@ -206,16 +206,19 @@ input:focus {
 
 thead,
 tbody {
-    text-align: right;
+    /* text-align: center; */
 }
 
 th {
     font-size: 0.7rem;
     border: 2px solid green;
+    text-align: center;
 }
 
 tr {
+    height: 2rem;
     border: 2px solid green;
+    text-align: center;
 }
 
 td {
@@ -227,10 +230,45 @@ td {
 }
 
 .table-course-grade {
-    width: 10%;
+    width: 8%;
 }
 .table-date {
     width: 15%;
+}
+
+.table-register {
+    width: 12%;
+}
+
+.register {
+    width: 60%;
+    padding: 0.1rem;
+    margin: 0 auto;
+    font-size: 0.65rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.register-signin {
+    border: 1px solid green;
+    border-radius: 20px;
+    color: white;
+    background-color: green;
+}
+
+.register-signin:hover {
+    color: green;
+    background-color: white;
+}
+.register-cancel {
+    border: 1px solid red;
+    border-radius: 20px;
+    color: white;
+    background-color: red;
+}
+.register-cancel:hover {
+    color: red;
+    background-color: white;
 }
 
 @media screen and (min-width: 576px) {

@@ -4,5 +4,5 @@ public enum Registration {
 
 	REGISTERED,
 	UNREGISTERED,
-	EXPIRED
+	REGISTRATION_EXPIRED
 }

@@ -39,6 +39,8 @@ public class StudentCourseFacade {
 				studentCourseDto.setRegistration(Registration.UNREGISTERED);
 			} else if (studentCourse.getRegistrationDate().isBefore(course.getStartDate())) {
 				studentCourseDto.setRegistration(Registration.REGISTERED);
+			} else if(studentCourse.getRegistrationDate().isAfter(course.getStartDate())) {
+				studentCourseDto.setRegistration(Registration.REGISTRATION_EXPIRED);
 			}
 
 			studentCoursesDto.add(studentCourseDto);
