@@ -23,7 +23,7 @@ public class StudentUserDetailsService implements UserDetailsService {
 		Student student = studentFacade.getStudentByStudentIdentification(identificationNumber);
 
 		User user = new User(
-				student.getStudentIdent(), 
+				student.getStudentIdentity(), 
 				student.getEncryptedPassword(), 
 				true, 
 				true, 

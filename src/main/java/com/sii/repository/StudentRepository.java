@@ -11,14 +11,14 @@ import com.sii.entity.StudentCourse;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
-	Student findByStudentIdent(String studentIdent);
+	Student findByStudentIdentity(String studentIdentity);
 
-	@Query("SELECT course FROM Student student JOIN student.studentCourse AS course WHERE student.studentIdent=:id")
-	Set<StudentCourse> getAllCoursesForStudentIdent(@Param("id") String studentIdent);
+	@Query("SELECT course FROM Student student JOIN student.studentCourse AS course WHERE student.studentIdentity=:id")
+	Set<StudentCourse> getAllCoursesForStudentIdent(@Param("id") String studentIdentity);
 
-	@Query("SELECT st FROM Student st WHERE st.firstName=:firstName AND st.lastName=:lastName AND st.studentIdent=:studentIdent")
+	@Query("SELECT st FROM Student st WHERE st.firstName=:firstName AND st.lastName=:lastName AND st.studentIdentity=:studentIdentity")
 	Student getStudentByFirstnameAndLastnameAndStudentIdentification(@Param("firstName") String firstName,
-			@Param("lastName") String lastName, @Param("studentIdent") String studentIdent);
+			@Param("lastName") String lastName, @Param("studentIdentity") String studentIdentity);
 
 }
 

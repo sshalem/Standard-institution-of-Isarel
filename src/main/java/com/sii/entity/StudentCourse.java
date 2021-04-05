@@ -18,7 +18,7 @@ public class StudentCourse {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	private String studentIdent;
+	private String studentIdentity;
 	private int courseNumber;
 	private int grade;
 
@@ -36,9 +36,9 @@ public class StudentCourse {
 		super();
 	}
 
-	public StudentCourse(String studentIdent, int courseNumber, LocalDate registrationDate) {
+	public StudentCourse(String studentIdentity, int courseNumber, LocalDate registrationDate) {
 		super();
-		this.studentIdent = studentIdent;
+		this.studentIdentity = studentIdentity;
 		this.courseNumber = courseNumber;
 		this.registrationDate = registrationDate;
 	}
@@ -51,12 +51,12 @@ public class StudentCourse {
 		this.id = id;
 	}
 
-	public String getStudentIdent() {
-		return studentIdent;
+	public String getStudentIdentity() {
+		return studentIdentity;
 	}
 
-	public void setStudentIdent(String studentIdent) {
-		this.studentIdent = studentIdent;
+	public void setStudentIdentity(String studentIdentity) {
+		this.studentIdentity = studentIdentity;
 	}
 
 	public int getGrade() {

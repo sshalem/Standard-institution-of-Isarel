@@ -24,7 +24,7 @@ public class CoursesController {
 	public String coursesPage(HttpServletRequest request, HttpServletResponse response) {
 
 		Student student = studentFacade.getStudentByStudentIdentification(request.getUserPrincipal().getName());
-		response.addHeader("studentID", student.getStudentIdent());
+		response.addHeader("studentID", student.getStudentIdentity());
 		LOGGER.info(student.getFirstName() + " " + student.getLastName() + " --> is logged in the ");
 		return "courses.html";
 	}

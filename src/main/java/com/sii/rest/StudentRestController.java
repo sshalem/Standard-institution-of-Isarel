@@ -37,7 +37,7 @@ public class StudentRestController {
 //		LOGGER.info("context: " + ctx.getBean(StudentFacade.class).hashCode()); 
 
 		Student student = studentFacade.getStudentByStudentIdentification(identity);
-		StudentDto studentDto = new StudentDto(student.getStudentIdent(), student.getFirstName(), student.getLastName(),
+		StudentDto studentDto = new StudentDto(student.getStudentIdentity(), student.getFirstName(), student.getLastName(),
 				student.getEmail());
 		LOGGER.info(" ---> " + studentDto);
 		return studentDto;

@@ -33,7 +33,7 @@ public class StudentFacade {
 		student.setEncryptedPassword(passwordEncoder.encode(studentDto.getPassword()));
 
 		studentDaoImpl.updateStudent(student);
-		StudentDto updateStudentDto = new StudentDto(student.getStudentIdent(), student.getFirstName(),
+		StudentDto updateStudentDto = new StudentDto(student.getStudentIdentity(), student.getFirstName(),
 				student.getLastName(), student.getEmail());
 		return updateStudentDto;
 	}

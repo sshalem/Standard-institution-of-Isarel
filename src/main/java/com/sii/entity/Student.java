@@ -20,7 +20,7 @@ public class Student {
 	private long id;
 	private String firstName;
 	private String lastName;
-	private String studentIdent;
+	private String studentIdentity;
 	private String encryptedPassword;
 	private String email;
 
@@ -31,11 +31,11 @@ public class Student {
 		super();
 	}
 
-	public Student(String firstName, String lastName, String studentIdent, String encryptedPassword, String email) {
+	public Student(String firstName, String lastName, String studentIdentity, String encryptedPassword, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.studentIdent = studentIdent;
+		this.studentIdentity = studentIdentity;
 		this.encryptedPassword = encryptedPassword;
 		this.email = email;
 	}
@@ -64,12 +64,12 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	public String getStudentIdent() {
-		return studentIdent;
+	public String getStudentIdentity() {
+		return studentIdentity;
 	}
 
-	public void setStudentIdent(String studentIdent) {
-		this.studentIdent = studentIdent;
+	public void setStudentIdentity(String studentIdentity) {
+		this.studentIdentity = studentIdentity;
 	}
 
 	public String getEncryptedPassword() {
@@ -108,8 +108,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentIdent="
-				+ studentIdent + ", encryptedPassword=" + encryptedPassword + ", email=" + email + "]";
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentIdentity="
+				+ studentIdentity + ", encryptedPassword=" + encryptedPassword + ", email=" + email + "]";
 	}
 
 }

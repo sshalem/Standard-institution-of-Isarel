@@ -34,7 +34,7 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public Student findByStudentIdentificationNumebr(String identificationNumber) {
-		return studentRepo.findByStudentIdent(identificationNumber);
+		return studentRepo.findByStudentIdentity(identificationNumber);
 	}
 
 }
