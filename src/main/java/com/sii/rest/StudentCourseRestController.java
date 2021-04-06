@@ -31,8 +31,8 @@ public class StudentCourseRestController {
 	 * @return StudentCourseDto - returns all courses assigned to a Student
 	 */
 	@GetMapping(path = "/all/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Set<StudentCourseDto> getStudentCoursesPerStudentIdentity(@PathVariable("identity") String identity) {
+	public Set<StudentCourseDto> getStudentCoursesPerStudentIdentity(@PathVariable("identity") String studentIdentity) {
 		LOGGER.info("Get method ");
-		return studentCourseFacade.getAllCoursesForStudentByStudentIdentity(identity);
+		return studentCourseFacade.getAllCoursesForStudentByStudentIdentity(studentIdentity);
 	}
 }

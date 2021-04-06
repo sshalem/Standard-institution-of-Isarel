@@ -5,11 +5,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,7 +21,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Course {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "seq", initialValue = 10001, allocationSize = 50)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+	@Column(name = "course_id")
 	private long id;
 	private int courseNumber;
 	private String courseName;

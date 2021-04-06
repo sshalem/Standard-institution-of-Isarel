@@ -240,7 +240,7 @@ td {
     width: 12%;
 }
 
-.register {
+.registration {
     width: 60%;
     padding: 0.1rem;
     margin: 0 auto;
@@ -249,14 +249,14 @@ td {
     cursor: pointer;
 }
 
-.register-signin {
+.register {
     border: 1px solid green;
     border-radius: 20px;
     color: white;
     background-color: green;
 }
 
-.register-signin:hover {
+.register:hover {
     color: green;
     background-color: white;
 }

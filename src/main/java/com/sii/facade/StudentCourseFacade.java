@@ -20,14 +20,14 @@ public class StudentCourseFacade {
 	@Autowired
 	private StudentCourseDaoImpl studentCourseDaoImpl;
 
-	public Set<StudentCourseDto> getAllCoursesForStudentByStudentIdentity(String studentIdent) {
+	public Set<StudentCourseDto> getAllCoursesForStudentByStudentIdentity(String studentIdentity) {
 
 		Set<StudentCourseDto> studentCoursesDto = new HashSet<>();
 
-		Set<Course> coursesOfStudent = studentCourseDaoImpl.getAllCoursesOfStudentPerId(studentIdent);
+		Set<Course> coursesOfStudent = studentCourseDaoImpl.getAllCoursesOfStudentPerId(studentIdentity);
 
 		for (Course course : coursesOfStudent) {
-			StudentCourse studentCourse = studentCourseDaoImpl.getStudentCourse(studentIdent, course.getCourseNumber());
+			StudentCourse studentCourse = studentCourseDaoImpl.getStudentCourse(studentIdentity, course.getCourseNumber());
 			StudentCourseDto studentCourseDto = new StudentCourseDto();
 			studentCourseDto.setCourseNumber(course.getCourseNumber());
 			studentCourseDto.setCourseName(course.getCourseName());

@@ -17,5 +17,6 @@ public interface StudentCourseRepository extends JpaRepository<StudentCourse, Lo
 
 	// returns a StudentCourse by searching studentIdentity And courseNumber.
 	@Query("SELECT sc FROM StudentCourse sc WHERE sc.studentIdentity=:studentIdentity AND sc.courseNumber=:courseNumber")
-	public StudentCourse getStudentCourseByStudentAndCourseNumber(@Param("studentIdentity") String studentIdent, @Param("courseNumber") int courseNumber);
+	public StudentCourse getStudentCourseByStudentAndCourseNumber(@Param("studentIdentity") String studentIdentity, @Param("courseNumber") int courseNumber);
+
 }

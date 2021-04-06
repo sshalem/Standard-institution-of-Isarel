@@ -67,7 +67,7 @@ function studentCoursesUI(data) {
         let registerButton = false;
         if (registration === `REGISTERED`) {
             registerStatus = `בטל רישום`;
-        } else if (registration === `REGISTERED`) {
+        } else if (registration === `UNREGISTERED`) {
             registerStatus = `הרשם`;
         } else if (registration === `REGISTRATION_EXPIRED`) {
             registerStatus = `קורס התחיל`;
@@ -80,22 +80,21 @@ function studentCoursesUI(data) {
             <td>${grade}</td>
             <td>${startDate}</td>
             <td>${endDate}</td>
-            <td><div class="register">${registerStatus}</div></td>
+            <td><div class="registration">${registerStatus}</div></td>
         </tr>`;
     });
 
-    let register = document.querySelectorAll('.register');
-    register.forEach((course) => {
+    let registrate = document.querySelectorAll('.registration');
+    registrate.forEach((course) => {
         if (course.innerText === `הרשם`) {
-            course.classList.add('register-signin');
-            course, addEventListener('click', function () {});
+            course.classList.add('register');
         }
         if (course.innerText === `בטל רישום`) {
             course.classList.add('register-cancel');
         }
         if (course.innerText === `קורס התחיל`) {
             course.classList.remove('register-cancel');
-            course.classList.remove('register-signin');
+            course.classList.remove('register');
         }
     });
 }
