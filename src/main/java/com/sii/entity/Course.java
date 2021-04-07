@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public class Course {
 	private LocalDate startDate;
 	private LocalDate endDate;
 
-	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<StudentCourse> studentCourse = new HashSet<>();
 
@@ -112,6 +113,12 @@ public class Course {
 	public void removeStudentCourse(StudentCourse studentCourse) {
 		this.studentCourse.remove(studentCourse);
 		studentCourse.setCourse(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", courseNumber=" + courseNumber + ", courseName=" + courseName + ", year=" + year
+				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
 
 //	@Override

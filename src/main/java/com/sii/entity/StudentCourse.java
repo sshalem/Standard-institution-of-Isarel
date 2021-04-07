@@ -3,6 +3,7 @@ package com.sii.entity;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,11 +18,9 @@ public class StudentCourse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
 	private String studentIdentity;
 	private int courseNumber;
 	private int grade;
-
 	private LocalDate registrationDate;
 
 	@ManyToOne
@@ -99,11 +98,16 @@ public class StudentCourse {
 		this.courseNumber = courseNumber;
 	}
 
+	@Override
+	public String toString() {
+		return "StudentCourse [id=" + id + ", studentIdentity=" + studentIdentity + ", courseNumber=" + courseNumber
+				+ ", grade=" + grade + ", registrationDate=" + registrationDate + "]";
+	}
+
 //	@Override
 //	public String toString() {
-//		return "StudentCourse [id=" + id + ", studentIdent=" + studentIdent + ", courseNumber=" + courseNumber
+//		return "StudentCourse [id=" + id + ", studentIdentity=" + studentIdentity + ", courseNumber=" + courseNumber
 //				+ ", grade=" + grade + ", registrationDate=" + registrationDate + ", student=" + student + ", course="
 //				+ course + "]";
 //	}
-
 }

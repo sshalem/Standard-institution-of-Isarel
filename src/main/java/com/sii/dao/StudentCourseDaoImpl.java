@@ -16,13 +16,13 @@ public class StudentCourseDaoImpl implements StudentCourseDao {
 	private StudentCourseRepository studentCourseRepository;
 
 	@Override
-	public Set<Course> getAllCoursesOfStudentPerId(String studentIdentity) {
-		return studentCourseRepository.getCoursesOfStudent(studentIdentity);
+	public Set<Course> getAllCoursesOfStudentAssignedOrRegistered(String studentIdentity) {
+		return studentCourseRepository.getAllCoursesOfStudentAssignedOrRegistered(studentIdentity);
 	}
-
+ 
 	@Override
 	public StudentCourse getStudentCourse(String studentIdentity, int courseNumber) {
-		return studentCourseRepository.getStudentCourseByStudentAndCourseNumber(studentIdentity, courseNumber);
+		return studentCourseRepository.findStudentCourse(studentIdentity, courseNumber);
 	}
 
 }

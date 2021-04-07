@@ -22,9 +22,10 @@ public class CourseFacade {
 	}
 
 	/**
-	 * return All the students that are assigned/registered to a Course by courseNumber
+	 * return set of "StudentCourse". 
+	 * All the students that are assigned/registered to a Course by courseNumber
 	 */
-	public Set<StudentCourse> listOfStudentsAssignedOrRegisteredToCourse(int courseNumber) {
+	public Set<StudentCourse> getAllStudentsAssignedOrRegisteredToCourse(int courseNumber) {
 		return courseDaoImpl.getListOfStudentsAssignedOrRegisteredToCourse(courseNumber);
 	}
 }

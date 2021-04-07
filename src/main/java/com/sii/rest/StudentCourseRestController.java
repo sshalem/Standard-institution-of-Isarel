@@ -33,6 +33,6 @@ public class StudentCourseRestController {
 	@GetMapping(path = "/all/{identity}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Set<StudentCourseDto> getStudentCoursesPerStudentIdentity(@PathVariable("identity") String studentIdentity) {
 		LOGGER.info("Get method ");
-		return studentCourseFacade.getAllCoursesForStudentByStudentIdentity(studentIdentity);
+		return studentCourseFacade.coursesOfStudentAssignedOrRegistered(studentIdentity);
 	}
 }

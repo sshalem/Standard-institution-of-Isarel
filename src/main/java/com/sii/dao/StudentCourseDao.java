@@ -7,7 +7,7 @@ import com.sii.entity.StudentCourse;
 
 public interface StudentCourseDao {
 
-	Set<Course> getAllCoursesOfStudentPerId(String studentId);
+	Set<Course> getAllCoursesOfStudentAssignedOrRegistered(String studentId);
 
 	StudentCourse getStudentCourse(String studentId, int courseNumber);
 }

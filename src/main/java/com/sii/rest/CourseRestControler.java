@@ -28,8 +28,8 @@ public class CourseRestControler {
 	 * return All the students that are assigned/registered to a Course by courseNumber
 	 */
 	@GetMapping("/{courseNumber}")
-	public Set<StudentCourse> getAssignedCoursesToStudentPerCourseNumber(@PathVariable("courseNumber") int courseNumber) {
+	public Set<StudentCourse> getAllStudentsAssignedOrRegisteredToCourse(@PathVariable("courseNumber") int courseNumber) {
 		LOGGER.info("from CourseRestControler");
-		return courseFacade.listOfStudentsAssignedOrRegisteredToCourse(courseNumber);
+		return courseFacade.getAllStudentsAssignedOrRegisteredToCourse(courseNumber);
 	}
 }

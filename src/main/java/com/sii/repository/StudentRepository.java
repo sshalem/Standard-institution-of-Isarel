@@ -13,8 +13,12 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	Student findByStudentIdentity(String studentIdentity);
 
+	// returns Set of StudentCourse.
+	// I will use this set of StudentCourse to see if a Student is registered.
+	// then I will use the Student Repository to update the DB of the table
+	// "StudentCourse" , so the associated table with PK and FK is updated in DB
 	@Query("SELECT course FROM Student student JOIN student.studentCourse AS course WHERE student.studentIdentity=:id")
-	Set<StudentCourse> getAllCoursesForStudentIdent(@Param("id") String studentIdentity);
+	Set<StudentCourse> getAllCoursesOfStudentRegistered(@Param("id") String studentIdentity);
 
 	@Query("SELECT st FROM Student st WHERE st.firstName=:firstName AND st.lastName=:lastName AND st.studentIdentity=:studentIdentity")
 	Student getStudentByFirstnameAndLastnameAndStudentIdentification(@Param("firstName") String firstName,

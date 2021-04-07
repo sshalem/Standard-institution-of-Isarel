@@ -10,6 +10,8 @@ public interface CourseDao {
 	void createCourse(Course course);
 
 	Course getCourseById(long id);
+	
+	Course getCourseByCoursename(String coursename);
 
 	void updateCourse(Course course);
 

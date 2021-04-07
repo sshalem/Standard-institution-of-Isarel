@@ -20,14 +20,25 @@ public class StudentCourseFacade {
 	@Autowired
 	private StudentCourseDaoImpl studentCourseDaoImpl;
 
-	public Set<StudentCourseDto> getAllCoursesForStudentByStudentIdentity(String studentIdentity) {
+	public StudentCourse getStudentCourse(String studentIdentity, int courseNumber) {
+		return studentCourseDaoImpl.getStudentCourse(studentIdentity, courseNumber);
+	}
+
+	/**
+	 * 
+	 * @param studentIdentity
+	 * @return set of StudentCourseDto.
+	 * 
+	 */
+	public Set<StudentCourseDto> coursesOfStudentAssignedOrRegistered(String studentIdentity) {
 
 		Set<StudentCourseDto> studentCoursesDto = new HashSet<>();
 
-		Set<Course> coursesOfStudent = studentCourseDaoImpl.getAllCoursesOfStudentPerId(studentIdentity);
+		Set<Course> coursesOfStudent = studentCourseDaoImpl.getAllCoursesOfStudentAssignedOrRegistered(studentIdentity);
 
 		for (Course course : coursesOfStudent) {
-			StudentCourse studentCourse = studentCourseDaoImpl.getStudentCourse(studentIdentity, course.getCourseNumber());
+			StudentCourse studentCourse = studentCourseDaoImpl.getStudentCourse(studentIdentity,
+					course.getCourseNumber());
 			StudentCourseDto studentCourseDto = new StudentCourseDto();
 			studentCourseDto.setCourseNumber(course.getCourseNumber());
 			studentCourseDto.setCourseName(course.getCourseName());
@@ -39,7 +50,7 @@ public class StudentCourseFacade {
 				studentCourseDto.setRegistration(Registration.UNREGISTERED);
 			} else if (studentCourse.getRegistrationDate().isBefore(course.getStartDate())) {
 				studentCourseDto.setRegistration(Registration.REGISTERED);
-			} else if(studentCourse.getRegistrationDate().isAfter(course.getStartDate())) {
+			} else if (studentCourse.getRegistrationDate().isAfter(course.getStartDate())) {
 				studentCourseDto.setRegistration(Registration.REGISTRATION_EXPIRED);
 			}
 
