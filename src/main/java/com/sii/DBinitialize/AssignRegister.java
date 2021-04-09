@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.sii.common.ConstantList;
 import com.sii.dao.CourseDaoImpl;
 import com.sii.dao.StudentCourseDaoImpl;
 import com.sii.dao.StudentDaoImpl;

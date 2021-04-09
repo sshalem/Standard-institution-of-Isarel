@@ -20,6 +20,9 @@ public class StudentUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String identificationNumber) throws UsernameNotFoundException {
+		
+		// on the FrontEnd page, when Student logs in ,he sign with 
+		// identification number as username, thus I search a Student by identificationNumber
 		Student student = studentFacade.getStudentByStudentIdentification(identificationNumber);
 
 		User user = new User(
